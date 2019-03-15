@@ -14,11 +14,6 @@ namespace CriminalIntentXamarin.Droid.Data
         private RecyclerView _crimeRecyclerView;
         private CrimeAdapter _adapter;
 
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.fragment_crime_list, container, false);
@@ -26,6 +21,7 @@ namespace CriminalIntentXamarin.Droid.Data
             _crimeRecyclerView.SetLayoutManager(new LinearLayoutManager(container.Context));
 
             UpdateUI();
+
             return view;
         }
 
@@ -33,40 +29,16 @@ namespace CriminalIntentXamarin.Droid.Data
         {
             CrimeLab crimeLab = CrimeLab.Get(Activity);
             List<Crime> crimes = crimeLab.Crimes;
+
             _adapter = new CrimeAdapter(crimes);
             _crimeRecyclerView.SetAdapter(_adapter);
-            _adapter.NotifyDataSetChanged();
-        }
-
-        private class CrimeHolder : RecyclerView.ViewHolder
-        {
-            private TextView _titleTextView;
-            private TextView _dateTextView;
-            private Crime _crime;
-
-            public CrimeHolder(LayoutInflater inflater, ViewGroup parent) : base(inflater.Inflate(Resource.Layout.list_item_crime, parent, false))
-            {
-                _titleTextView = ItemView.FindViewById<TextView>(Resource.Id.crime_title);
-                _dateTextView = ItemView.FindViewById<TextView>(Resource.Id.crime_date);
-                ItemView.Click += ItemViewClicked;
-                }
-
-            public void Bind(Crime crime)
-            {
-                _crime = crime;
-                _titleTextView.Text = _crime.Title;
-                _dateTextView.Text = _crime.Date.ToString();
-            }
-
-            private void ItemViewClicked(object sender, EventArgs e)
-            {
-                var toastText = ItemView.FindViewById<TextView>(Resource.Id.crime_title).Text;
-                Toast.MakeText(ItemView.Context, toastText, ToastLength.Short).Show();
-            }
         }
 
         private class CrimeAdapter : RecyclerView.Adapter
         {
+            private const int SimpleCrimeViewType = 0;
+            private const int SeriousCrimeViewType = 1;
+
             private List<Crime> _crimes;
 
             public CrimeAdapter(List<Crime> crimes)
@@ -76,17 +48,53 @@ namespace CriminalIntentXamarin.Droid.Data
 
             public override int ItemCount => _crimes.Count;
 
+            public override int GetItemViewType(int position)
+            {
+                if (_crimes[position].RequiresPolice)
+                {
+                    return SeriousCrimeViewType;
+                }
+
+                return SimpleCrimeViewType;
+            }
+
             public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
             {
                 LayoutInflater layoutInflater = LayoutInflater.From(parent.Context);
-                return new CrimeHolder(layoutInflater, parent);
+
+                if (viewType == SimpleCrimeViewType)
+                {
+                    return new SimpleCrimeHolder(layoutInflater, parent);
+                }
+                else if (viewType == SeriousCrimeViewType)
+                {
+                    return new SeriousCrimeHolder(layoutInflater, parent);
+                }
+                else
+                {
+                    return null;
+                }
             }
 
             public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
             {
-                var crimeHolder = holder as CrimeHolder;
+                var crimeHolder = holder as CustomViewHolder;
                 var crime = _crimes[position];
                 crimeHolder.Bind(crime);
+            }
+        }
+
+        private class SimpleCrimeHolder : CustomViewHolder
+        {
+            public SimpleCrimeHolder(LayoutInflater inflater, ViewGroup parent) : base(inflater.Inflate(Resource.Layout.list_item_crime, parent, false))
+            {
+            }
+        }
+
+        private class SeriousCrimeHolder : CustomViewHolder
+        {
+            public SeriousCrimeHolder(LayoutInflater inflater, ViewGroup parent) : base(inflater.Inflate(Resource.Layout.list_item_serious_crime, parent, false))
+            {
             }
         }
     }

@@ -2470,34 +2470,37 @@ namespace CriminalIntentXamarin.Droid
 			public const int list_item_crime = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int notification_action = 2130968608;
+			public const int list_item_serious_crime = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int notification_action_tombstone = 2130968609;
+			public const int notification_action = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int notification_template_custom_big = 2130968610;
+			public const int notification_action_tombstone = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int notification_template_icon_group = 2130968611;
+			public const int notification_template_custom_big = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int notification_template_part_chronometer = 2130968612;
+			public const int notification_template_icon_group = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int notification_template_part_time = 2130968613;
+			public const int notification_template_part_chronometer = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int select_dialog_item_material = 2130968614;
+			public const int notification_template_part_time = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int select_dialog_multichoice_material = 2130968615;
+			public const int select_dialog_item_material = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int select_dialog_singlechoice_material = 2130968616;
+			public const int select_dialog_multichoice_material = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int support_simple_spinner_dropdown_item = 2130968617;
+			public const int select_dialog_singlechoice_material = 2130968617;
+			
+			// aapt resource value: 0x7f04002a
+			public const int support_simple_spinner_dropdown_item = 2130968618;
 			
 			static Layout()
 			{
@@ -2650,6 +2653,9 @@ namespace CriminalIntentXamarin.Droid
 			
 			// aapt resource value: 0x7f080029
 			public const int app_name = 2131230761;
+			
+			// aapt resource value: 0x7f08002f
+			public const int call_police = 2131230767;
 			
 			// aapt resource value: 0x7f08002d
 			public const int crime_details_label = 2131230765;
