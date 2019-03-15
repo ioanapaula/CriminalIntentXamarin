@@ -149,11 +149,12 @@
     </Compile>
     <Compile Include="Activities\CrimeActivity.cs" />
     <Compile Include="Data\Crime.cs" />
-    <Compile Include="Data\CrimeFragment.cs" />
     <Compile Include="Data\CrimeLab.cs" />
     <Compile Include="Activities\CrimeListActivity.cs" />
-    <Compile Include="SingleFragmentActivity.cs" />
-    <Compile Include="Data\CrimeListFragment.cs" />
+    <Compile Include="Fragments\CrimeListFragment.cs" />
+    <Compile Include="Fragments\CrimeFragment.cs" />
+    <Compile Include="CustomViewHolder.cs" />
+    <Compile Include="Activities\SingleFragmentActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -177,10 +178,12 @@
     <AndroidResource Include="Resources\layout\fragment_crime.axml" />
     <AndroidResource Include="Resources\layout\fragment_crime_list.axml" />
     <AndroidResource Include="Resources\layout\list_item_crime.axml" />
+    <AndroidResource Include="Resources\layout\list_item_serious_crime.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />
     <Folder Include="Data\" />
+    <Folder Include="Fragments\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\StyleCop.MSBuild.6.0.0\build\StyleCop.MSBuild.targets" Condition="Exists('..\packages\StyleCop.MSBuild.6.0.0\build\StyleCop.MSBuild.targets')" />
