@@ -22,15 +22,15 @@ namespace CriminalIntentXamarin.Droid.Data
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var v = inflater.Inflate(Resource.Layout.fragment_crime, container, false);
-            InitFields(v);
+            var view = inflater.Inflate(Resource.Layout.fragment_crime, container, false);
+            InitFields(view);
 
             _titleField.TextChanged += TextChanged;
             _dateButton.Text = _crime.Date.ToString();
             _dateButton.Enabled = false;
             _solvedCheckBox.CheckedChange += CheckBoxChecked;
 
-            return v;
+            return view;
         }
 
         private void TextChanged(object sender, EventArgs e)
@@ -43,11 +43,11 @@ namespace CriminalIntentXamarin.Droid.Data
             _solvedCheckBox.Checked = true;
         }
 
-        private void InitFields(View v)
+        private void InitFields(View view)
         {
-            _titleField = v.FindViewById<EditText>(Resource.Id.crime_title);
-            _dateButton = v.FindViewById<Button>(Resource.Id.crime_date);
-            _solvedCheckBox = v.FindViewById<CheckBox>(Resource.Id.crime_solved);
+            _titleField = view.FindViewById<EditText>(Resource.Id.crime_title);
+            _dateButton = view.FindViewById<Button>(Resource.Id.crime_date);
+            _solvedCheckBox = view.FindViewById<CheckBox>(Resource.Id.crime_solved);
         }
     }
 }
