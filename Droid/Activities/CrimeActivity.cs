@@ -1,29 +1,14 @@
 ﻿using Android.App;
-using Android.OS;
-using Android.Support.V7.App;
-using Android.Widget;
 using CriminalIntentXamarin.Droid.Data;
 
 namespace CriminalIntentXamarin.Droid
 {
-    [Activity(Label = "CriminalIntentXamarin", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/AppTheme")]
-    public class CrimeActivity : AppCompatActivity
+    [Activity(Label = "CriminalIntentXamarin")]
+    public class CrimeActivity : SingleFragmentActivity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override Android.Support.V4.App.Fragment CreateFragment()
         {
-            base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
-
-            var fm = SupportFragmentManager;
-            var fragment = fm.FindFragmentById(Resource.Id.fragment_container);
-
-            if (fragment == null)
-            {
-                fragment = new CrimeFragment();
-                fm.BeginTransaction().Add(Resource.Id.fragment_container, fragment).Commit();
-            }
+            return new CrimeFragment();
         }
     }
 }
