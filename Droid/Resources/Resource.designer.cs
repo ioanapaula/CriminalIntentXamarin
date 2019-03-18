@@ -197,8 +197,8 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f0100b8
 			public const int allowStacking = 2130772152;
 			
-			// aapt resource value: 0x7f01010d
-			public const int alpha = 2130772237;
+			// aapt resource value: 0x7f010146
+			public const int alpha = 2130772294;
 			
 			// aapt resource value: 0x7f0100c6
 			public const int alphabeticModifiers = 2130772166;
@@ -245,6 +245,12 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f0100c1
 			public const int barLength = 2130772161;
 			
+			// aapt resource value: 0x7f01010d
+			public const int barrierAllowsGoneWidgets = 2130772237;
+			
+			// aapt resource value: 0x7f01010e
+			public const int barrierDirection = 2130772238;
+			
 			// aapt resource value: 0x7f010077
 			public const int borderlessButtonStyle = 2130772087;
 			
@@ -283,6 +289,9 @@ namespace CriminalIntentXamarin.Droid
 			
 			// aapt resource value: 0x7f0100ba
 			public const int buttonTintMode = 2130772154;
+			
+			// aapt resource value: 0x7f01010f
+			public const int chainUseRtl = 2130772239;
 			
 			// aapt resource value: 0x7f0100a9
 			public const int checkboxStyle = 2130772137;
@@ -337,6 +346,15 @@ namespace CriminalIntentXamarin.Droid
 			
 			// aapt resource value: 0x7f0100df
 			public const int commitIcon = 2130772191;
+			
+			// aapt resource value: 0x7f010110
+			public const int constraintSet = 2130772240;
+			
+			// aapt resource value: 0x7f010111
+			public const int constraint_referenced_ids = 2130772241;
+			
+			// aapt resource value: 0x7f010112
+			public const int content = 2130772242;
 			
 			// aapt resource value: 0x7f0100cc
 			public const int contentDescription = 2130772172;
@@ -419,6 +437,9 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f010025
 			public const int elevation = 2130772005;
 			
+			// aapt resource value: 0x7f010113
+			public const int emptyVisibility = 2130772243;
+			
 			// aapt resource value: 0x7f010029
 			public const int expandActivityOverflowButtonDrawable = 2130772009;
 			
@@ -440,38 +461,38 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f01003f
 			public const int firstBaselineToTopHeight = 2130772031;
 			
-			// aapt resource value: 0x7f010115
-			public const int font = 2130772245;
+			// aapt resource value: 0x7f01014e
+			public const int font = 2130772302;
 			
 			// aapt resource value: 0x7f01003d
 			public const int fontFamily = 2130772029;
 			
-			// aapt resource value: 0x7f01010e
-			public const int fontProviderAuthority = 2130772238;
+			// aapt resource value: 0x7f010147
+			public const int fontProviderAuthority = 2130772295;
 			
-			// aapt resource value: 0x7f010111
-			public const int fontProviderCerts = 2130772241;
+			// aapt resource value: 0x7f01014a
+			public const int fontProviderCerts = 2130772298;
 			
-			// aapt resource value: 0x7f010112
-			public const int fontProviderFetchStrategy = 2130772242;
+			// aapt resource value: 0x7f01014b
+			public const int fontProviderFetchStrategy = 2130772299;
 			
-			// aapt resource value: 0x7f010113
-			public const int fontProviderFetchTimeout = 2130772243;
+			// aapt resource value: 0x7f01014c
+			public const int fontProviderFetchTimeout = 2130772300;
 			
-			// aapt resource value: 0x7f01010f
-			public const int fontProviderPackage = 2130772239;
+			// aapt resource value: 0x7f010148
+			public const int fontProviderPackage = 2130772296;
 			
-			// aapt resource value: 0x7f010110
-			public const int fontProviderQuery = 2130772240;
+			// aapt resource value: 0x7f010149
+			public const int fontProviderQuery = 2130772297;
 			
-			// aapt resource value: 0x7f010114
-			public const int fontStyle = 2130772244;
+			// aapt resource value: 0x7f01014d
+			public const int fontStyle = 2130772301;
 			
-			// aapt resource value: 0x7f010117
-			public const int fontVariationSettings = 2130772247;
+			// aapt resource value: 0x7f010150
+			public const int fontVariationSettings = 2130772304;
 			
-			// aapt resource value: 0x7f010116
-			public const int fontWeight = 2130772246;
+			// aapt resource value: 0x7f01014f
+			public const int fontWeight = 2130772303;
 			
 			// aapt resource value: 0x7f0100be
 			public const int gapBetweenBars = 2130772158;
@@ -539,14 +560,164 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f010107
 			public const int layout_behavior = 2130772231;
 			
+			// aapt resource value: 0x7f010114
+			public const int layout_constrainedHeight = 2130772244;
+			
+			// aapt resource value: 0x7f010115
+			public const int layout_constrainedWidth = 2130772245;
+			
+			// aapt resource value: 0x7f010116
+			public const int layout_constraintBaseline_creator = 2130772246;
+			
+			// aapt resource value: 0x7f010117
+			public const int layout_constraintBaseline_toBaselineOf = 2130772247;
+			
+			// aapt resource value: 0x7f010118
+			public const int layout_constraintBottom_creator = 2130772248;
+			
+			// aapt resource value: 0x7f010119
+			public const int layout_constraintBottom_toBottomOf = 2130772249;
+			
+			// aapt resource value: 0x7f01011a
+			public const int layout_constraintBottom_toTopOf = 2130772250;
+			
+			// aapt resource value: 0x7f01011b
+			public const int layout_constraintCircle = 2130772251;
+			
+			// aapt resource value: 0x7f01011c
+			public const int layout_constraintCircleAngle = 2130772252;
+			
+			// aapt resource value: 0x7f01011d
+			public const int layout_constraintCircleRadius = 2130772253;
+			
+			// aapt resource value: 0x7f01011e
+			public const int layout_constraintDimensionRatio = 2130772254;
+			
+			// aapt resource value: 0x7f01011f
+			public const int layout_constraintEnd_toEndOf = 2130772255;
+			
+			// aapt resource value: 0x7f010120
+			public const int layout_constraintEnd_toStartOf = 2130772256;
+			
+			// aapt resource value: 0x7f010121
+			public const int layout_constraintGuide_begin = 2130772257;
+			
+			// aapt resource value: 0x7f010122
+			public const int layout_constraintGuide_end = 2130772258;
+			
+			// aapt resource value: 0x7f010123
+			public const int layout_constraintGuide_percent = 2130772259;
+			
+			// aapt resource value: 0x7f010124
+			public const int layout_constraintHeight_default = 2130772260;
+			
+			// aapt resource value: 0x7f010125
+			public const int layout_constraintHeight_max = 2130772261;
+			
+			// aapt resource value: 0x7f010126
+			public const int layout_constraintHeight_min = 2130772262;
+			
+			// aapt resource value: 0x7f010127
+			public const int layout_constraintHeight_percent = 2130772263;
+			
+			// aapt resource value: 0x7f010128
+			public const int layout_constraintHorizontal_bias = 2130772264;
+			
+			// aapt resource value: 0x7f010129
+			public const int layout_constraintHorizontal_chainStyle = 2130772265;
+			
+			// aapt resource value: 0x7f01012a
+			public const int layout_constraintHorizontal_weight = 2130772266;
+			
+			// aapt resource value: 0x7f01012b
+			public const int layout_constraintLeft_creator = 2130772267;
+			
+			// aapt resource value: 0x7f01012c
+			public const int layout_constraintLeft_toLeftOf = 2130772268;
+			
+			// aapt resource value: 0x7f01012d
+			public const int layout_constraintLeft_toRightOf = 2130772269;
+			
+			// aapt resource value: 0x7f01012e
+			public const int layout_constraintRight_creator = 2130772270;
+			
+			// aapt resource value: 0x7f01012f
+			public const int layout_constraintRight_toLeftOf = 2130772271;
+			
+			// aapt resource value: 0x7f010130
+			public const int layout_constraintRight_toRightOf = 2130772272;
+			
+			// aapt resource value: 0x7f010131
+			public const int layout_constraintStart_toEndOf = 2130772273;
+			
+			// aapt resource value: 0x7f010132
+			public const int layout_constraintStart_toStartOf = 2130772274;
+			
+			// aapt resource value: 0x7f010133
+			public const int layout_constraintTop_creator = 2130772275;
+			
+			// aapt resource value: 0x7f010134
+			public const int layout_constraintTop_toBottomOf = 2130772276;
+			
+			// aapt resource value: 0x7f010135
+			public const int layout_constraintTop_toTopOf = 2130772277;
+			
+			// aapt resource value: 0x7f010136
+			public const int layout_constraintVertical_bias = 2130772278;
+			
+			// aapt resource value: 0x7f010137
+			public const int layout_constraintVertical_chainStyle = 2130772279;
+			
+			// aapt resource value: 0x7f010138
+			public const int layout_constraintVertical_weight = 2130772280;
+			
+			// aapt resource value: 0x7f010139
+			public const int layout_constraintWidth_default = 2130772281;
+			
+			// aapt resource value: 0x7f01013a
+			public const int layout_constraintWidth_max = 2130772282;
+			
+			// aapt resource value: 0x7f01013b
+			public const int layout_constraintWidth_min = 2130772283;
+			
+			// aapt resource value: 0x7f01013c
+			public const int layout_constraintWidth_percent = 2130772284;
+			
 			// aapt resource value: 0x7f01010c
 			public const int layout_dodgeInsetEdges = 2130772236;
+			
+			// aapt resource value: 0x7f01013d
+			public const int layout_editor_absoluteX = 2130772285;
+			
+			// aapt resource value: 0x7f01013e
+			public const int layout_editor_absoluteY = 2130772286;
+			
+			// aapt resource value: 0x7f01013f
+			public const int layout_goneMarginBottom = 2130772287;
+			
+			// aapt resource value: 0x7f010140
+			public const int layout_goneMarginEnd = 2130772288;
+			
+			// aapt resource value: 0x7f010141
+			public const int layout_goneMarginLeft = 2130772289;
+			
+			// aapt resource value: 0x7f010142
+			public const int layout_goneMarginRight = 2130772290;
+			
+			// aapt resource value: 0x7f010143
+			public const int layout_goneMarginStart = 2130772291;
+			
+			// aapt resource value: 0x7f010144
+			public const int layout_goneMarginTop = 2130772292;
 			
 			// aapt resource value: 0x7f01010b
 			public const int layout_insetEdge = 2130772235;
 			
 			// aapt resource value: 0x7f010109
 			public const int layout_keyline = 2130772233;
+			
+			// aapt resource value: 0x7f010145
+			public const int layout_optimizationLevel = 2130772293;
 			
 			// aapt resource value: 0x7f01003e
 			public const int lineHeight = 2130772030;
@@ -884,8 +1055,8 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f0100e7
 			public const int trackTintMode = 2130772199;
 			
-			// aapt resource value: 0x7f010118
-			public const int ttcIndex = 2130772248;
+			// aapt resource value: 0x7f010151
+			public const int ttcIndex = 2130772305;
 			
 			// aapt resource value: 0x7f0100b7
 			public const int viewInflaterClass = 2130772151;
@@ -1861,46 +2032,49 @@ namespace CriminalIntentXamarin.Droid
 			public const int abc_vector_test = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int notification_action_background = 2130837588;
+			public const int ic_solved = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int notification_bg = 2130837589;
+			public const int notification_action_background = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int notification_bg_low = 2130837590;
+			public const int notification_bg = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int notification_bg_low_normal = 2130837591;
+			public const int notification_bg_low = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int notification_bg_low_pressed = 2130837592;
+			public const int notification_bg_low_normal = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int notification_bg_normal = 2130837593;
+			public const int notification_bg_low_pressed = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int notification_bg_normal_pressed = 2130837594;
+			public const int notification_bg_normal = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int notification_icon_background = 2130837595;
-			
-			// aapt resource value: 0x7f020060
-			public const int notification_template_icon_bg = 2130837600;
-			
-			// aapt resource value: 0x7f020061
-			public const int notification_template_icon_low_bg = 2130837601;
+			public const int notification_bg_normal_pressed = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int notification_tile_bg = 2130837596;
+			public const int notification_icon_background = 2130837596;
+			
+			// aapt resource value: 0x7f020061
+			public const int notification_template_icon_bg = 2130837601;
+			
+			// aapt resource value: 0x7f020062
+			public const int notification_template_icon_low_bg = 2130837602;
 			
 			// aapt resource value: 0x7f02005d
-			public const int notify_panel_notification_icon_bg = 2130837597;
+			public const int notification_tile_bg = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int tooltip_frame_dark = 2130837598;
+			public const int notify_panel_notification_icon_bg = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int tooltip_frame_light = 2130837599;
+			public const int tooltip_frame_dark = 2130837599;
+			
+			// aapt resource value: 0x7f020060
+			public const int tooltip_frame_light = 2130837600;
 			
 			static Drawable()
 			{
@@ -1933,38 +2107,38 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07002c
 			public const int SYM = 2131165228;
 			
-			// aapt resource value: 0x7f070068
-			public const int action_bar = 2131165288;
+			// aapt resource value: 0x7f070075
+			public const int action_bar = 2131165301;
 			
 			// aapt resource value: 0x7f070001
 			public const int action_bar_activity_content = 2131165185;
 			
-			// aapt resource value: 0x7f070067
-			public const int action_bar_container = 2131165287;
+			// aapt resource value: 0x7f070074
+			public const int action_bar_container = 2131165300;
 			
-			// aapt resource value: 0x7f070063
-			public const int action_bar_root = 2131165283;
+			// aapt resource value: 0x7f070070
+			public const int action_bar_root = 2131165296;
 			
 			// aapt resource value: 0x7f070002
 			public const int action_bar_spinner = 2131165186;
 			
-			// aapt resource value: 0x7f070045
-			public const int action_bar_subtitle = 2131165253;
+			// aapt resource value: 0x7f070052
+			public const int action_bar_subtitle = 2131165266;
 			
-			// aapt resource value: 0x7f070044
-			public const int action_bar_title = 2131165252;
+			// aapt resource value: 0x7f070051
+			public const int action_bar_title = 2131165265;
 			
-			// aapt resource value: 0x7f07007d
-			public const int action_container = 2131165309;
+			// aapt resource value: 0x7f07008e
+			public const int action_container = 2131165326;
 			
-			// aapt resource value: 0x7f070069
-			public const int action_context_bar = 2131165289;
+			// aapt resource value: 0x7f070076
+			public const int action_context_bar = 2131165302;
 			
-			// aapt resource value: 0x7f070088
-			public const int action_divider = 2131165320;
+			// aapt resource value: 0x7f070099
+			public const int action_divider = 2131165337;
 			
-			// aapt resource value: 0x7f07007e
-			public const int action_image = 2131165310;
+			// aapt resource value: 0x7f07008f
+			public const int action_image = 2131165327;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -1972,29 +2146,29 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070004
 			public const int action_menu_presenter = 2131165188;
 			
-			// aapt resource value: 0x7f070065
-			public const int action_mode_bar = 2131165285;
+			// aapt resource value: 0x7f070072
+			public const int action_mode_bar = 2131165298;
 			
-			// aapt resource value: 0x7f070064
-			public const int action_mode_bar_stub = 2131165284;
+			// aapt resource value: 0x7f070071
+			public const int action_mode_bar_stub = 2131165297;
 			
-			// aapt resource value: 0x7f070046
-			public const int action_mode_close_button = 2131165254;
+			// aapt resource value: 0x7f070053
+			public const int action_mode_close_button = 2131165267;
 			
-			// aapt resource value: 0x7f07007f
-			public const int action_text = 2131165311;
+			// aapt resource value: 0x7f070090
+			public const int action_text = 2131165328;
 			
-			// aapt resource value: 0x7f070089
-			public const int actions = 2131165321;
+			// aapt resource value: 0x7f07009a
+			public const int actions = 2131165338;
 			
-			// aapt resource value: 0x7f070047
-			public const int activity_chooser_view_content = 2131165255;
+			// aapt resource value: 0x7f070054
+			public const int activity_chooser_view_content = 2131165268;
 			
 			// aapt resource value: 0x7f07001c
 			public const int add = 2131165212;
 			
-			// aapt resource value: 0x7f07005a
-			public const int alertTitle = 2131165274;
+			// aapt resource value: 0x7f070067
+			public const int alertTitle = 2131165287;
 			
 			// aapt resource value: 0x7f07003f
 			public const int all = 2131165247;
@@ -2002,20 +2176,23 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07002d
 			public const int always = 2131165229;
 			
-			// aapt resource value: 0x7f070040
-			public const int async = 2131165248;
+			// aapt resource value: 0x7f07004d
+			public const int async = 2131165261;
+			
+			// aapt resource value: 0x7f070048
+			public const int barrier = 2131165256;
 			
 			// aapt resource value: 0x7f070024
 			public const int beginning = 2131165220;
 			
-			// aapt resource value: 0x7f070041
-			public const int blocking = 2131165249;
+			// aapt resource value: 0x7f07004e
+			public const int blocking = 2131165262;
 			
 			// aapt resource value: 0x7f070032
 			public const int bottom = 2131165234;
 			
-			// aapt resource value: 0x7f07004d
-			public const int buttonPanel = 2131165261;
+			// aapt resource value: 0x7f07005a
+			public const int buttonPanel = 2131165274;
 			
 			// aapt resource value: 0x7f070034
 			public const int center = 2131165236;
@@ -2026,11 +2203,14 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070036
 			public const int center_vertical = 2131165238;
 			
-			// aapt resource value: 0x7f070061
-			public const int checkbox = 2131165281;
+			// aapt resource value: 0x7f070049
+			public const int chains = 2131165257;
 			
-			// aapt resource value: 0x7f070087
-			public const int chronometer = 2131165319;
+			// aapt resource value: 0x7f07006e
+			public const int checkbox = 2131165294;
+			
+			// aapt resource value: 0x7f070098
+			public const int chronometer = 2131165336;
 			
 			// aapt resource value: 0x7f070037
 			public const int clip_horizontal = 2131165239;
@@ -2041,50 +2221,56 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07002e
 			public const int collapseActionView = 2131165230;
 			
+			// aapt resource value: 0x7f07006a
+			public const int content = 2131165290;
+			
 			// aapt resource value: 0x7f07005d
-			public const int content = 2131165277;
+			public const int contentPanel = 2131165277;
 			
-			// aapt resource value: 0x7f070050
-			public const int contentPanel = 2131165264;
+			// aapt resource value: 0x7f070087
+			public const int crime_date = 2131165319;
 			
-			// aapt resource value: 0x7f07007a
-			public const int crime_date = 2131165306;
+			// aapt resource value: 0x7f070089
+			public const int crime_recycler_view = 2131165321;
 			
-			// aapt resource value: 0x7f07007c
-			public const int crime_recycler_view = 2131165308;
+			// aapt resource value: 0x7f070088
+			public const int crime_solved = 2131165320;
 			
-			// aapt resource value: 0x7f07007b
-			public const int crime_solved = 2131165307;
+			// aapt resource value: 0x7f070086
+			public const int crime_title = 2131165318;
 			
-			// aapt resource value: 0x7f070079
-			public const int crime_title = 2131165305;
+			// aapt resource value: 0x7f070064
+			public const int custom = 2131165284;
+			
+			// aapt resource value: 0x7f070063
+			public const int customPanel = 2131165283;
+			
+			// aapt resource value: 0x7f070073
+			public const int decor_content_parent = 2131165299;
 			
 			// aapt resource value: 0x7f070057
-			public const int custom = 2131165271;
-			
-			// aapt resource value: 0x7f070056
-			public const int customPanel = 2131165270;
-			
-			// aapt resource value: 0x7f070066
-			public const int decor_content_parent = 2131165286;
+			public const int default_activity_button = 2131165271;
 			
 			// aapt resource value: 0x7f07004a
-			public const int default_activity_button = 2131165258;
+			public const int dimensions = 2131165258;
+			
+			// aapt resource value: 0x7f07004b
+			public const int direct = 2131165259;
 			
 			// aapt resource value: 0x7f070015
 			public const int disableHome = 2131165205;
 			
-			// aapt resource value: 0x7f07006a
-			public const int edit_query = 2131165290;
+			// aapt resource value: 0x7f070077
+			public const int edit_query = 2131165303;
 			
 			// aapt resource value: 0x7f070025
 			public const int end = 2131165221;
 			
-			// aapt resource value: 0x7f070048
-			public const int expand_activities_button = 2131165256;
+			// aapt resource value: 0x7f070055
+			public const int expand_activities_button = 2131165269;
 			
-			// aapt resource value: 0x7f070060
-			public const int expanded_menu = 2131165280;
+			// aapt resource value: 0x7f07006d
+			public const int expanded_menu = 2131165293;
 			
 			// aapt resource value: 0x7f070039
 			public const int fill = 2131165241;
@@ -2095,14 +2281,20 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07003b
 			public const int fill_vertical = 2131165243;
 			
-			// aapt resource value: 0x7f070042
-			public const int forever = 2131165250;
+			// aapt resource value: 0x7f07004f
+			public const int forever = 2131165263;
 			
-			// aapt resource value: 0x7f070078
-			public const int fragment_container = 2131165304;
+			// aapt resource value: 0x7f070085
+			public const int fragment_container = 2131165317;
 			
-			// aapt resource value: 0x7f07005c
-			public const int group_divider = 2131165276;
+			// aapt resource value: 0x7f070040
+			public const int gone = 2131165248;
+			
+			// aapt resource value: 0x7f070069
+			public const int group_divider = 2131165289;
+			
+			// aapt resource value: 0x7f07008b
+			public const int guideline = 2131165323;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -2110,23 +2302,32 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070016
 			public const int homeAsUp = 2131165206;
 			
-			// aapt resource value: 0x7f07004c
-			public const int icon = 2131165260;
+			// aapt resource value: 0x7f070059
+			public const int icon = 2131165273;
 			
-			// aapt resource value: 0x7f07008a
-			public const int icon_group = 2131165322;
+			// aapt resource value: 0x7f07009b
+			public const int icon_group = 2131165339;
 			
 			// aapt resource value: 0x7f07002f
 			public const int ifRoom = 2131165231;
 			
-			// aapt resource value: 0x7f070049
-			public const int image = 2131165257;
+			// aapt resource value: 0x7f070056
+			public const int image = 2131165270;
 			
-			// aapt resource value: 0x7f070083
-			public const int info = 2131165315;
+			// aapt resource value: 0x7f07008d
+			public const int imageButton = 2131165325;
 			
-			// aapt resource value: 0x7f070043
-			public const int italic = 2131165251;
+			// aapt resource value: 0x7f07008c
+			public const int imageView = 2131165324;
+			
+			// aapt resource value: 0x7f070094
+			public const int info = 2131165332;
+			
+			// aapt resource value: 0x7f070041
+			public const int invisible = 2131165249;
+			
+			// aapt resource value: 0x7f070050
+			public const int italic = 2131165264;
 			
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
@@ -2140,14 +2341,17 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07000b
 			public const int line3 = 2131165195;
 			
+			// aapt resource value: 0x7f07008a
+			public const int linearLayout = 2131165322;
+			
 			// aapt resource value: 0x7f070012
 			public const int listMode = 2131165202;
 			
-			// aapt resource value: 0x7f07004b
-			public const int list_item = 2131165259;
+			// aapt resource value: 0x7f070058
+			public const int list_item = 2131165272;
 			
-			// aapt resource value: 0x7f070077
-			public const int message = 2131165303;
+			// aapt resource value: 0x7f070084
+			public const int message = 2131165316;
 			
 			// aapt resource value: 0x7f070026
 			public const int middle = 2131165222;
@@ -2164,17 +2368,26 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070013
 			public const int normal = 2131165203;
 			
-			// aapt resource value: 0x7f070085
-			public const int notification_background = 2131165317;
+			// aapt resource value: 0x7f070096
+			public const int notification_background = 2131165334;
 			
-			// aapt resource value: 0x7f070081
-			public const int notification_main_column = 2131165313;
+			// aapt resource value: 0x7f070092
+			public const int notification_main_column = 2131165330;
 			
-			// aapt resource value: 0x7f070080
-			public const int notification_main_column_container = 2131165312;
+			// aapt resource value: 0x7f070091
+			public const int notification_main_column_container = 2131165329;
 			
-			// aapt resource value: 0x7f07004f
-			public const int parentPanel = 2131165263;
+			// aapt resource value: 0x7f070046
+			public const int packed = 2131165254;
+			
+			// aapt resource value: 0x7f070042
+			public const int parent = 2131165250;
+			
+			// aapt resource value: 0x7f07005c
+			public const int parentPanel = 2131165276;
+			
+			// aapt resource value: 0x7f070043
+			public const int percent = 2131165251;
 			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
@@ -2182,65 +2395,65 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070007
 			public const int progress_horizontal = 2131165191;
 			
-			// aapt resource value: 0x7f070062
-			public const int radio = 2131165282;
+			// aapt resource value: 0x7f07006f
+			public const int radio = 2131165295;
 			
 			// aapt resource value: 0x7f07003d
 			public const int right = 2131165245;
 			
-			// aapt resource value: 0x7f070084
-			public const int right_icon = 2131165316;
+			// aapt resource value: 0x7f070095
+			public const int right_icon = 2131165333;
 			
-			// aapt resource value: 0x7f070082
-			public const int right_side = 2131165314;
+			// aapt resource value: 0x7f070093
+			public const int right_side = 2131165331;
 			
 			// aapt resource value: 0x7f07001e
 			public const int screen = 2131165214;
 			
-			// aapt resource value: 0x7f070055
-			public const int scrollIndicatorDown = 2131165269;
-			
-			// aapt resource value: 0x7f070051
-			public const int scrollIndicatorUp = 2131165265;
-			
-			// aapt resource value: 0x7f070052
-			public const int scrollView = 2131165266;
-			
-			// aapt resource value: 0x7f07006c
-			public const int search_badge = 2131165292;
-			
-			// aapt resource value: 0x7f07006b
-			public const int search_bar = 2131165291;
-			
-			// aapt resource value: 0x7f07006d
-			public const int search_button = 2131165293;
-			
-			// aapt resource value: 0x7f070072
-			public const int search_close_btn = 2131165298;
-			
-			// aapt resource value: 0x7f07006e
-			public const int search_edit_frame = 2131165294;
-			
-			// aapt resource value: 0x7f070074
-			public const int search_go_btn = 2131165300;
-			
-			// aapt resource value: 0x7f07006f
-			public const int search_mag_icon = 2131165295;
-			
-			// aapt resource value: 0x7f070070
-			public const int search_plate = 2131165296;
-			
-			// aapt resource value: 0x7f070071
-			public const int search_src_text = 2131165297;
-			
-			// aapt resource value: 0x7f070075
-			public const int search_voice_btn = 2131165301;
-			
-			// aapt resource value: 0x7f070076
-			public const int select_dialog_listview = 2131165302;
+			// aapt resource value: 0x7f070062
+			public const int scrollIndicatorDown = 2131165282;
 			
 			// aapt resource value: 0x7f07005e
-			public const int shortcut = 2131165278;
+			public const int scrollIndicatorUp = 2131165278;
+			
+			// aapt resource value: 0x7f07005f
+			public const int scrollView = 2131165279;
+			
+			// aapt resource value: 0x7f070079
+			public const int search_badge = 2131165305;
+			
+			// aapt resource value: 0x7f070078
+			public const int search_bar = 2131165304;
+			
+			// aapt resource value: 0x7f07007a
+			public const int search_button = 2131165306;
+			
+			// aapt resource value: 0x7f07007f
+			public const int search_close_btn = 2131165311;
+			
+			// aapt resource value: 0x7f07007b
+			public const int search_edit_frame = 2131165307;
+			
+			// aapt resource value: 0x7f070081
+			public const int search_go_btn = 2131165313;
+			
+			// aapt resource value: 0x7f07007c
+			public const int search_mag_icon = 2131165308;
+			
+			// aapt resource value: 0x7f07007d
+			public const int search_plate = 2131165309;
+			
+			// aapt resource value: 0x7f07007e
+			public const int search_src_text = 2131165310;
+			
+			// aapt resource value: 0x7f070082
+			public const int search_voice_btn = 2131165314;
+			
+			// aapt resource value: 0x7f070083
+			public const int select_dialog_listview = 2131165315;
+			
+			// aapt resource value: 0x7f07006b
+			public const int shortcut = 2131165291;
 			
 			// aapt resource value: 0x7f070018
 			public const int showCustom = 2131165208;
@@ -2251,11 +2464,17 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07001a
 			public const int showTitle = 2131165210;
 			
-			// aapt resource value: 0x7f07004e
-			public const int spacer = 2131165262;
+			// aapt resource value: 0x7f07005b
+			public const int spacer = 2131165275;
 			
 			// aapt resource value: 0x7f070008
 			public const int split_action_bar = 2131165192;
+			
+			// aapt resource value: 0x7f070044
+			public const int spread = 2131165252;
+			
+			// aapt resource value: 0x7f070047
+			public const int spread_inside = 2131165255;
 			
 			// aapt resource value: 0x7f07001f
 			public const int src_atop = 2131165215;
@@ -2266,14 +2485,17 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070021
 			public const int src_over = 2131165217;
 			
+			// aapt resource value: 0x7f07004c
+			public const int standard = 2131165260;
+			
 			// aapt resource value: 0x7f07003e
 			public const int start = 2131165246;
 			
-			// aapt resource value: 0x7f07005f
-			public const int submenuarrow = 2131165279;
+			// aapt resource value: 0x7f07006c
+			public const int submenuarrow = 2131165292;
 			
-			// aapt resource value: 0x7f070073
-			public const int submit_area = 2131165299;
+			// aapt resource value: 0x7f070080
+			public const int submit_area = 2131165312;
 			
 			// aapt resource value: 0x7f070014
 			public const int tabMode = 2131165204;
@@ -2293,29 +2515,29 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070010
 			public const int text2 = 2131165200;
 			
-			// aapt resource value: 0x7f070054
-			public const int textSpacerNoButtons = 2131165268;
+			// aapt resource value: 0x7f070061
+			public const int textSpacerNoButtons = 2131165281;
 			
-			// aapt resource value: 0x7f070053
-			public const int textSpacerNoTitle = 2131165267;
+			// aapt resource value: 0x7f070060
+			public const int textSpacerNoTitle = 2131165280;
 			
-			// aapt resource value: 0x7f070086
-			public const int time = 2131165318;
+			// aapt resource value: 0x7f070097
+			public const int time = 2131165335;
 			
 			// aapt resource value: 0x7f070011
 			public const int title = 2131165201;
 			
-			// aapt resource value: 0x7f07005b
-			public const int titleDividerNoCustom = 2131165275;
+			// aapt resource value: 0x7f070068
+			public const int titleDividerNoCustom = 2131165288;
 			
-			// aapt resource value: 0x7f070059
-			public const int title_template = 2131165273;
+			// aapt resource value: 0x7f070066
+			public const int title_template = 2131165286;
 			
 			// aapt resource value: 0x7f070033
 			public const int top = 2131165235;
 			
-			// aapt resource value: 0x7f070058
-			public const int topPanel = 2131165272;
+			// aapt resource value: 0x7f070065
+			public const int topPanel = 2131165285;
 			
 			// aapt resource value: 0x7f070022
 			public const int uniform = 2131165218;
@@ -2328,6 +2550,9 @@ namespace CriminalIntentXamarin.Droid
 			
 			// aapt resource value: 0x7f070031
 			public const int withText = 2131165233;
+			
+			// aapt resource value: 0x7f070045
+			public const int wrap = 2131165253;
 			
 			// aapt resource value: 0x7f070023
 			public const int wrap_content = 2131165219;
@@ -4614,7 +4839,7 @@ namespace CriminalIntentXamarin.Droid
 			public static int[] ColorStateListItem = new int[] {
 					16843173,
 					16843551,
-					2130772237};
+					2130772294};
 			
 			// aapt resource value: 2
 			public const int ColorStateListItem_alpha = 2;
@@ -4638,6 +4863,548 @@ namespace CriminalIntentXamarin.Droid
 			
 			// aapt resource value: 2
 			public const int CompoundButton_buttonTintMode = 2;
+			
+			public static int[] ConstraintLayout_Layout = new int[] {
+					16842948,
+					16843039,
+					16843040,
+					16843071,
+					16843072,
+					2130772237,
+					2130772238,
+					2130772239,
+					2130772240,
+					2130772241,
+					2130772244,
+					2130772245,
+					2130772246,
+					2130772247,
+					2130772248,
+					2130772249,
+					2130772250,
+					2130772251,
+					2130772252,
+					2130772253,
+					2130772254,
+					2130772255,
+					2130772256,
+					2130772257,
+					2130772258,
+					2130772259,
+					2130772260,
+					2130772261,
+					2130772262,
+					2130772263,
+					2130772264,
+					2130772265,
+					2130772266,
+					2130772267,
+					2130772268,
+					2130772269,
+					2130772270,
+					2130772271,
+					2130772272,
+					2130772273,
+					2130772274,
+					2130772275,
+					2130772276,
+					2130772277,
+					2130772278,
+					2130772279,
+					2130772280,
+					2130772281,
+					2130772282,
+					2130772283,
+					2130772284,
+					2130772285,
+					2130772286,
+					2130772287,
+					2130772288,
+					2130772289,
+					2130772290,
+					2130772291,
+					2130772292,
+					2130772293};
+			
+			// aapt resource value: 2
+			public const int ConstraintLayout_Layout_android_maxHeight = 2;
+			
+			// aapt resource value: 1
+			public const int ConstraintLayout_Layout_android_maxWidth = 1;
+			
+			// aapt resource value: 4
+			public const int ConstraintLayout_Layout_android_minHeight = 4;
+			
+			// aapt resource value: 3
+			public const int ConstraintLayout_Layout_android_minWidth = 3;
+			
+			// aapt resource value: 0
+			public const int ConstraintLayout_Layout_android_orientation = 0;
+			
+			// aapt resource value: 5
+			public const int ConstraintLayout_Layout_barrierAllowsGoneWidgets = 5;
+			
+			// aapt resource value: 6
+			public const int ConstraintLayout_Layout_barrierDirection = 6;
+			
+			// aapt resource value: 7
+			public const int ConstraintLayout_Layout_chainUseRtl = 7;
+			
+			// aapt resource value: 8
+			public const int ConstraintLayout_Layout_constraintSet = 8;
+			
+			// aapt resource value: 9
+			public const int ConstraintLayout_Layout_constraint_referenced_ids = 9;
+			
+			// aapt resource value: 10
+			public const int ConstraintLayout_Layout_layout_constrainedHeight = 10;
+			
+			// aapt resource value: 11
+			public const int ConstraintLayout_Layout_layout_constrainedWidth = 11;
+			
+			// aapt resource value: 12
+			public const int ConstraintLayout_Layout_layout_constraintBaseline_creator = 12;
+			
+			// aapt resource value: 13
+			public const int ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf = 13;
+			
+			// aapt resource value: 14
+			public const int ConstraintLayout_Layout_layout_constraintBottom_creator = 14;
+			
+			// aapt resource value: 15
+			public const int ConstraintLayout_Layout_layout_constraintBottom_toBottomOf = 15;
+			
+			// aapt resource value: 16
+			public const int ConstraintLayout_Layout_layout_constraintBottom_toTopOf = 16;
+			
+			// aapt resource value: 17
+			public const int ConstraintLayout_Layout_layout_constraintCircle = 17;
+			
+			// aapt resource value: 18
+			public const int ConstraintLayout_Layout_layout_constraintCircleAngle = 18;
+			
+			// aapt resource value: 19
+			public const int ConstraintLayout_Layout_layout_constraintCircleRadius = 19;
+			
+			// aapt resource value: 20
+			public const int ConstraintLayout_Layout_layout_constraintDimensionRatio = 20;
+			
+			// aapt resource value: 21
+			public const int ConstraintLayout_Layout_layout_constraintEnd_toEndOf = 21;
+			
+			// aapt resource value: 22
+			public const int ConstraintLayout_Layout_layout_constraintEnd_toStartOf = 22;
+			
+			// aapt resource value: 23
+			public const int ConstraintLayout_Layout_layout_constraintGuide_begin = 23;
+			
+			// aapt resource value: 24
+			public const int ConstraintLayout_Layout_layout_constraintGuide_end = 24;
+			
+			// aapt resource value: 25
+			public const int ConstraintLayout_Layout_layout_constraintGuide_percent = 25;
+			
+			// aapt resource value: 26
+			public const int ConstraintLayout_Layout_layout_constraintHeight_default = 26;
+			
+			// aapt resource value: 27
+			public const int ConstraintLayout_Layout_layout_constraintHeight_max = 27;
+			
+			// aapt resource value: 28
+			public const int ConstraintLayout_Layout_layout_constraintHeight_min = 28;
+			
+			// aapt resource value: 29
+			public const int ConstraintLayout_Layout_layout_constraintHeight_percent = 29;
+			
+			// aapt resource value: 30
+			public const int ConstraintLayout_Layout_layout_constraintHorizontal_bias = 30;
+			
+			// aapt resource value: 31
+			public const int ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle = 31;
+			
+			// aapt resource value: 32
+			public const int ConstraintLayout_Layout_layout_constraintHorizontal_weight = 32;
+			
+			// aapt resource value: 33
+			public const int ConstraintLayout_Layout_layout_constraintLeft_creator = 33;
+			
+			// aapt resource value: 34
+			public const int ConstraintLayout_Layout_layout_constraintLeft_toLeftOf = 34;
+			
+			// aapt resource value: 35
+			public const int ConstraintLayout_Layout_layout_constraintLeft_toRightOf = 35;
+			
+			// aapt resource value: 36
+			public const int ConstraintLayout_Layout_layout_constraintRight_creator = 36;
+			
+			// aapt resource value: 37
+			public const int ConstraintLayout_Layout_layout_constraintRight_toLeftOf = 37;
+			
+			// aapt resource value: 38
+			public const int ConstraintLayout_Layout_layout_constraintRight_toRightOf = 38;
+			
+			// aapt resource value: 39
+			public const int ConstraintLayout_Layout_layout_constraintStart_toEndOf = 39;
+			
+			// aapt resource value: 40
+			public const int ConstraintLayout_Layout_layout_constraintStart_toStartOf = 40;
+			
+			// aapt resource value: 41
+			public const int ConstraintLayout_Layout_layout_constraintTop_creator = 41;
+			
+			// aapt resource value: 42
+			public const int ConstraintLayout_Layout_layout_constraintTop_toBottomOf = 42;
+			
+			// aapt resource value: 43
+			public const int ConstraintLayout_Layout_layout_constraintTop_toTopOf = 43;
+			
+			// aapt resource value: 44
+			public const int ConstraintLayout_Layout_layout_constraintVertical_bias = 44;
+			
+			// aapt resource value: 45
+			public const int ConstraintLayout_Layout_layout_constraintVertical_chainStyle = 45;
+			
+			// aapt resource value: 46
+			public const int ConstraintLayout_Layout_layout_constraintVertical_weight = 46;
+			
+			// aapt resource value: 47
+			public const int ConstraintLayout_Layout_layout_constraintWidth_default = 47;
+			
+			// aapt resource value: 48
+			public const int ConstraintLayout_Layout_layout_constraintWidth_max = 48;
+			
+			// aapt resource value: 49
+			public const int ConstraintLayout_Layout_layout_constraintWidth_min = 49;
+			
+			// aapt resource value: 50
+			public const int ConstraintLayout_Layout_layout_constraintWidth_percent = 50;
+			
+			// aapt resource value: 51
+			public const int ConstraintLayout_Layout_layout_editor_absoluteX = 51;
+			
+			// aapt resource value: 52
+			public const int ConstraintLayout_Layout_layout_editor_absoluteY = 52;
+			
+			// aapt resource value: 53
+			public const int ConstraintLayout_Layout_layout_goneMarginBottom = 53;
+			
+			// aapt resource value: 54
+			public const int ConstraintLayout_Layout_layout_goneMarginEnd = 54;
+			
+			// aapt resource value: 55
+			public const int ConstraintLayout_Layout_layout_goneMarginLeft = 55;
+			
+			// aapt resource value: 56
+			public const int ConstraintLayout_Layout_layout_goneMarginRight = 56;
+			
+			// aapt resource value: 57
+			public const int ConstraintLayout_Layout_layout_goneMarginStart = 57;
+			
+			// aapt resource value: 58
+			public const int ConstraintLayout_Layout_layout_goneMarginTop = 58;
+			
+			// aapt resource value: 59
+			public const int ConstraintLayout_Layout_layout_optimizationLevel = 59;
+			
+			public static int[] ConstraintLayout_placeholder = new int[] {
+					2130772242,
+					2130772243};
+			
+			// aapt resource value: 0
+			public const int ConstraintLayout_placeholder_content = 0;
+			
+			// aapt resource value: 1
+			public const int ConstraintLayout_placeholder_emptyVisibility = 1;
+			
+			public static int[] ConstraintSet = new int[] {
+					16842948,
+					16842960,
+					16842972,
+					16842996,
+					16842997,
+					16842999,
+					16843000,
+					16843001,
+					16843002,
+					16843551,
+					16843552,
+					16843553,
+					16843554,
+					16843555,
+					16843556,
+					16843557,
+					16843558,
+					16843559,
+					16843560,
+					16843701,
+					16843702,
+					16843770,
+					16843840,
+					2130772244,
+					2130772245,
+					2130772246,
+					2130772247,
+					2130772248,
+					2130772249,
+					2130772250,
+					2130772251,
+					2130772252,
+					2130772253,
+					2130772254,
+					2130772255,
+					2130772256,
+					2130772257,
+					2130772258,
+					2130772259,
+					2130772260,
+					2130772261,
+					2130772262,
+					2130772263,
+					2130772264,
+					2130772265,
+					2130772266,
+					2130772267,
+					2130772268,
+					2130772269,
+					2130772270,
+					2130772271,
+					2130772272,
+					2130772273,
+					2130772274,
+					2130772275,
+					2130772276,
+					2130772277,
+					2130772278,
+					2130772279,
+					2130772280,
+					2130772281,
+					2130772282,
+					2130772283,
+					2130772284,
+					2130772285,
+					2130772286,
+					2130772287,
+					2130772288,
+					2130772289,
+					2130772290,
+					2130772291,
+					2130772292};
+			
+			// aapt resource value: 9
+			public const int ConstraintSet_android_alpha = 9;
+			
+			// aapt resource value: 22
+			public const int ConstraintSet_android_elevation = 22;
+			
+			// aapt resource value: 1
+			public const int ConstraintSet_android_id = 1;
+			
+			// aapt resource value: 4
+			public const int ConstraintSet_android_layout_height = 4;
+			
+			// aapt resource value: 8
+			public const int ConstraintSet_android_layout_marginBottom = 8;
+			
+			// aapt resource value: 20
+			public const int ConstraintSet_android_layout_marginEnd = 20;
+			
+			// aapt resource value: 5
+			public const int ConstraintSet_android_layout_marginLeft = 5;
+			
+			// aapt resource value: 7
+			public const int ConstraintSet_android_layout_marginRight = 7;
+			
+			// aapt resource value: 19
+			public const int ConstraintSet_android_layout_marginStart = 19;
+			
+			// aapt resource value: 6
+			public const int ConstraintSet_android_layout_marginTop = 6;
+			
+			// aapt resource value: 3
+			public const int ConstraintSet_android_layout_width = 3;
+			
+			// aapt resource value: 0
+			public const int ConstraintSet_android_orientation = 0;
+			
+			// aapt resource value: 16
+			public const int ConstraintSet_android_rotation = 16;
+			
+			// aapt resource value: 17
+			public const int ConstraintSet_android_rotationX = 17;
+			
+			// aapt resource value: 18
+			public const int ConstraintSet_android_rotationY = 18;
+			
+			// aapt resource value: 14
+			public const int ConstraintSet_android_scaleX = 14;
+			
+			// aapt resource value: 15
+			public const int ConstraintSet_android_scaleY = 15;
+			
+			// aapt resource value: 10
+			public const int ConstraintSet_android_transformPivotX = 10;
+			
+			// aapt resource value: 11
+			public const int ConstraintSet_android_transformPivotY = 11;
+			
+			// aapt resource value: 12
+			public const int ConstraintSet_android_translationX = 12;
+			
+			// aapt resource value: 13
+			public const int ConstraintSet_android_translationY = 13;
+			
+			// aapt resource value: 21
+			public const int ConstraintSet_android_translationZ = 21;
+			
+			// aapt resource value: 2
+			public const int ConstraintSet_android_visibility = 2;
+			
+			// aapt resource value: 23
+			public const int ConstraintSet_layout_constrainedHeight = 23;
+			
+			// aapt resource value: 24
+			public const int ConstraintSet_layout_constrainedWidth = 24;
+			
+			// aapt resource value: 25
+			public const int ConstraintSet_layout_constraintBaseline_creator = 25;
+			
+			// aapt resource value: 26
+			public const int ConstraintSet_layout_constraintBaseline_toBaselineOf = 26;
+			
+			// aapt resource value: 27
+			public const int ConstraintSet_layout_constraintBottom_creator = 27;
+			
+			// aapt resource value: 28
+			public const int ConstraintSet_layout_constraintBottom_toBottomOf = 28;
+			
+			// aapt resource value: 29
+			public const int ConstraintSet_layout_constraintBottom_toTopOf = 29;
+			
+			// aapt resource value: 30
+			public const int ConstraintSet_layout_constraintCircle = 30;
+			
+			// aapt resource value: 31
+			public const int ConstraintSet_layout_constraintCircleAngle = 31;
+			
+			// aapt resource value: 32
+			public const int ConstraintSet_layout_constraintCircleRadius = 32;
+			
+			// aapt resource value: 33
+			public const int ConstraintSet_layout_constraintDimensionRatio = 33;
+			
+			// aapt resource value: 34
+			public const int ConstraintSet_layout_constraintEnd_toEndOf = 34;
+			
+			// aapt resource value: 35
+			public const int ConstraintSet_layout_constraintEnd_toStartOf = 35;
+			
+			// aapt resource value: 36
+			public const int ConstraintSet_layout_constraintGuide_begin = 36;
+			
+			// aapt resource value: 37
+			public const int ConstraintSet_layout_constraintGuide_end = 37;
+			
+			// aapt resource value: 38
+			public const int ConstraintSet_layout_constraintGuide_percent = 38;
+			
+			// aapt resource value: 39
+			public const int ConstraintSet_layout_constraintHeight_default = 39;
+			
+			// aapt resource value: 40
+			public const int ConstraintSet_layout_constraintHeight_max = 40;
+			
+			// aapt resource value: 41
+			public const int ConstraintSet_layout_constraintHeight_min = 41;
+			
+			// aapt resource value: 42
+			public const int ConstraintSet_layout_constraintHeight_percent = 42;
+			
+			// aapt resource value: 43
+			public const int ConstraintSet_layout_constraintHorizontal_bias = 43;
+			
+			// aapt resource value: 44
+			public const int ConstraintSet_layout_constraintHorizontal_chainStyle = 44;
+			
+			// aapt resource value: 45
+			public const int ConstraintSet_layout_constraintHorizontal_weight = 45;
+			
+			// aapt resource value: 46
+			public const int ConstraintSet_layout_constraintLeft_creator = 46;
+			
+			// aapt resource value: 47
+			public const int ConstraintSet_layout_constraintLeft_toLeftOf = 47;
+			
+			// aapt resource value: 48
+			public const int ConstraintSet_layout_constraintLeft_toRightOf = 48;
+			
+			// aapt resource value: 49
+			public const int ConstraintSet_layout_constraintRight_creator = 49;
+			
+			// aapt resource value: 50
+			public const int ConstraintSet_layout_constraintRight_toLeftOf = 50;
+			
+			// aapt resource value: 51
+			public const int ConstraintSet_layout_constraintRight_toRightOf = 51;
+			
+			// aapt resource value: 52
+			public const int ConstraintSet_layout_constraintStart_toEndOf = 52;
+			
+			// aapt resource value: 53
+			public const int ConstraintSet_layout_constraintStart_toStartOf = 53;
+			
+			// aapt resource value: 54
+			public const int ConstraintSet_layout_constraintTop_creator = 54;
+			
+			// aapt resource value: 55
+			public const int ConstraintSet_layout_constraintTop_toBottomOf = 55;
+			
+			// aapt resource value: 56
+			public const int ConstraintSet_layout_constraintTop_toTopOf = 56;
+			
+			// aapt resource value: 57
+			public const int ConstraintSet_layout_constraintVertical_bias = 57;
+			
+			// aapt resource value: 58
+			public const int ConstraintSet_layout_constraintVertical_chainStyle = 58;
+			
+			// aapt resource value: 59
+			public const int ConstraintSet_layout_constraintVertical_weight = 59;
+			
+			// aapt resource value: 60
+			public const int ConstraintSet_layout_constraintWidth_default = 60;
+			
+			// aapt resource value: 61
+			public const int ConstraintSet_layout_constraintWidth_max = 61;
+			
+			// aapt resource value: 62
+			public const int ConstraintSet_layout_constraintWidth_min = 62;
+			
+			// aapt resource value: 63
+			public const int ConstraintSet_layout_constraintWidth_percent = 63;
+			
+			// aapt resource value: 64
+			public const int ConstraintSet_layout_editor_absoluteX = 64;
+			
+			// aapt resource value: 65
+			public const int ConstraintSet_layout_editor_absoluteY = 65;
+			
+			// aapt resource value: 66
+			public const int ConstraintSet_layout_goneMarginBottom = 66;
+			
+			// aapt resource value: 67
+			public const int ConstraintSet_layout_goneMarginEnd = 67;
+			
+			// aapt resource value: 68
+			public const int ConstraintSet_layout_goneMarginLeft = 68;
+			
+			// aapt resource value: 69
+			public const int ConstraintSet_layout_goneMarginRight = 69;
+			
+			// aapt resource value: 70
+			public const int ConstraintSet_layout_goneMarginStart = 70;
+			
+			// aapt resource value: 71
+			public const int ConstraintSet_layout_goneMarginTop = 71;
 			
 			public static int[] CoordinatorLayout = new int[] {
 					2130772229,
@@ -4714,12 +5481,12 @@ namespace CriminalIntentXamarin.Droid
 			public const int DrawerArrowToggle_thickness = 7;
 			
 			public static int[] FontFamily = new int[] {
-					2130772238,
-					2130772239,
-					2130772240,
-					2130772241,
-					2130772242,
-					2130772243};
+					2130772295,
+					2130772296,
+					2130772297,
+					2130772298,
+					2130772299,
+					2130772300};
 			
 			// aapt resource value: 0
 			public const int FontFamily_fontProviderAuthority = 0;
@@ -4745,11 +5512,11 @@ namespace CriminalIntentXamarin.Droid
 					16844095,
 					16844143,
 					16844144,
-					2130772244,
-					2130772245,
-					2130772246,
-					2130772247,
-					2130772248};
+					2130772301,
+					2130772302,
+					2130772303,
+					2130772304,
+					2130772305};
 			
 			// aapt resource value: 0
 			public const int FontFamilyFont_android_font = 0;
@@ -4840,6 +5607,12 @@ namespace CriminalIntentXamarin.Droid
 			
 			// aapt resource value: 1
 			public const int GradientColorItem_android_offset = 1;
+			
+			public static int[] LinearConstraintLayout = new int[] {
+					16842948};
+			
+			// aapt resource value: 0
+			public const int LinearConstraintLayout_android_orientation = 0;
 			
 			public static int[] LinearLayoutCompat = new int[] {
 					16842927,
