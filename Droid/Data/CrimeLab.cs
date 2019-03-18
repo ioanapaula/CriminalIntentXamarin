@@ -17,7 +17,7 @@ namespace CriminalIntentXamarin.Droid.Data
                 Crime crime = new Crime();
                 crime.Title = "Crime #" + i;
                 crime.Solved = i % 2 == 0;
-                crime.RequiresPolice = i % 2 == 0;
+                crime.RequiresPolice = i % 3 == 0;
                 Crimes.Add(crime);
             }
         }
