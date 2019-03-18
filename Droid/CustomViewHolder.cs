@@ -2,6 +2,7 @@
 using Android.Views;
 using Android.Widget;
 using CriminalIntentXamarin.Droid.Data;
+using Java.Text;
 using static Android.Support.V7.Widget.RecyclerView;
 
 namespace CriminalIntentXamarin.Droid
@@ -21,11 +22,12 @@ namespace CriminalIntentXamarin.Droid
             ItemView.Click += ItemViewClicked;
         }
 
-        public void Bind(Crime crime) 
+        public void Bind(Crime crime)
         {
+            var simpleFormat = new SimpleDateFormat("EEEE, MMM d, yyyy");
             _crime = crime;
             _titleTextView.Text = _crime.Title;
-            _dateTextView.Text = _crime.Date.ToString();
+            _dateTextView.Text = simpleFormat.Format(_crime.Date);
             _solvedImageView.Visibility = crime.Solved ? ViewStates.Visible : ViewStates.Gone;
         }
 
