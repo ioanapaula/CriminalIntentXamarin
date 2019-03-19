@@ -9,6 +9,7 @@ namespace CriminalIntentXamarin.Droid.Data
     public class CrimeLab
     {
         private static CrimeLab crimeLab;
+        private Dictionary<string, Crime> crimeDictionary = new Dictionary<string, Crime>();
 
         private CrimeLab(Context context)
         {
@@ -18,12 +19,12 @@ namespace CriminalIntentXamarin.Droid.Data
                 crime.Title = "Crime #" + i;
                 crime.Solved = i % 2 == 0;
                 crime.RequiresPolice = i % 3 == 0;
-                Crimes.Add(crime);
+                crimeDictionary[crime.Id.ToString()] = crime;
             }
         }
 
-        public List<Crime> Crimes { get; } = new List<Crime>();
-        
+        public List<Crime> Crimes => crimeDictionary.Values.ToList();
+
         public static CrimeLab Get(Context context)
         {
             if (crimeLab == null)
@@ -36,12 +37,7 @@ namespace CriminalIntentXamarin.Droid.Data
 
         public Crime GetCrime(UUID id)
         {
-            return Crimes.FirstOrDefault(crime => crime.Id.Equals(id));
+            return crimeDictionary[id.ToString()];
         }
-
-        /*public int GetCrimePosition(Crime crime)
-        {
-            return Crimes.IndexOf(crime);
-        }*/
     }
 }

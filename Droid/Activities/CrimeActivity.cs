@@ -16,6 +16,7 @@ namespace CriminalIntentXamarin.Droid
             var intent = new Intent(packageContext, typeof(CrimeActivity));
             intent.PutExtra(ExtraCrimeId, crimeId);
             intent.PutExtra(ExtraPosition, crimePosition);
+
             return intent;
         }
 
@@ -23,6 +24,7 @@ namespace CriminalIntentXamarin.Droid
         {
             var crimeId = (UUID)this.Intent.GetSerializableExtra(ExtraCrimeId);
             var crimePosition = this.Intent.GetIntExtra(ExtraPosition, 0);
+
             return CrimeFragment.NewInstance(crimePosition, crimeId);
         }
     }

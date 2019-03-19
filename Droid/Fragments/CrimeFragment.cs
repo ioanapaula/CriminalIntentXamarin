@@ -64,7 +64,7 @@ namespace CriminalIntentXamarin.Droid.Data
             return view;
         }
 
-        public void SetActivityResult()
+        private void SetActivityResult()
         {
             var data = new Intent();
             data.PutExtra(ExtraPosition, Arguments.GetInt(ArgCrimePosition));
