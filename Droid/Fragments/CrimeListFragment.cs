@@ -25,13 +25,27 @@ namespace CriminalIntentXamarin.Droid.Data
             return view;
         }
 
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            UpdateUI();
+        }
+
         private void UpdateUI()
         {
             CrimeLab crimeLab = CrimeLab.Get(Activity);
             List<Crime> crimes = crimeLab.Crimes;
 
-            _adapter = new CrimeAdapter(crimes);
-            _crimeRecyclerView.SetAdapter(_adapter);
+            if (_adapter == null)
+            {
+                _adapter = new CrimeAdapter(crimes);
+                _crimeRecyclerView.SetAdapter(_adapter);
+            }
+            else
+            {
+                _adapter.NotifyDataSetChanged();
+            }
         }
 
         private class CrimeAdapter : RecyclerView.Adapter

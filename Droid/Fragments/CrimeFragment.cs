@@ -3,21 +3,37 @@ using Android.OS;
 using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using Java.Util;
 
 namespace CriminalIntentXamarin.Droid.Data
 {
     public class CrimeFragment : Fragment
     {
+        private const string ArgCrimeId = "crime_id";
         private Crime _crime;
         private EditText _titleField;
         private Button _dateButton;
         private CheckBox _solvedCheckBox;
 
+        public static CrimeFragment NewInstance(UUID crimeId)
+        {
+            var args = new Bundle();
+            args.PutSerializable(ArgCrimeId, crimeId);
+
+            var fragment = new CrimeFragment
+            {
+                Arguments = args
+            };
+            return fragment;
+        }
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            _crime = new Crime();
+            UUID crimeId = (UUID)Arguments.GetSerializable(ArgCrimeId);
+            var crimeLab = CrimeLab.Get(Activity.ApplicationContext);
+            _crime = crimeLab.GetCrime(crimeId);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -25,22 +41,25 @@ namespace CriminalIntentXamarin.Droid.Data
             var view = inflater.Inflate(Resource.Layout.fragment_crime, container, false);
             InitFields(view);
 
+            _titleField.Text = _crime.Title;
             _titleField.TextChanged += TextChanged;
             _dateButton.Text = _crime.Date.ToString();
             _dateButton.Enabled = false;
+            _solvedCheckBox.Checked = _crime.Solved;
             _solvedCheckBox.CheckedChange += CheckBoxChecked;
 
             return view;
         }
+
 
         private void TextChanged(object sender, EventArgs e)
         {
             _crime.Title = _titleField.Text;
         }
 
-        private void CheckBoxChecked(object sender, EventArgs e)
+        private void CheckBoxChecked(object sender, CompoundButton.CheckedChangeEventArgs e)
         {
-            _solvedCheckBox.Checked = true;
+            _crime.Solved = e.IsChecked;
         }
 
         private void InitFields(View view)

@@ -23,7 +23,7 @@ namespace CriminalIntentXamarin.Droid.Data
         }
 
         public List<Crime> Crimes { get; } = new List<Crime>();
-
+        
         public static CrimeLab Get(Context context)
         {
             if (crimeLab == null)
@@ -35,8 +35,8 @@ namespace CriminalIntentXamarin.Droid.Data
         }
 
         public Crime GetCrime(UUID id)
-        { 
-            return Crimes.FirstOrDefault(crime => crime.Id == id);
+        {
+            return Crimes.FirstOrDefault(crime => crime.Id.Equals(id));
         }
     }
 }

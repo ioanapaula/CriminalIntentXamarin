@@ -1,4 +1,6 @@
 ﻿using System;
+using Android.App;
+using Android.Content;
 using Android.Views;
 using Android.Widget;
 using CriminalIntentXamarin.Droid.Data;
@@ -33,8 +35,8 @@ namespace CriminalIntentXamarin.Droid
 
         protected void ItemViewClicked(object sender, EventArgs e)
         {
-            var toastText = ItemView.FindViewById<TextView>(Resource.Id.crime_title).Text;
-            Toast.MakeText(ItemView.Context, toastText, ToastLength.Short).Show();
+            var intent = CrimeActivity.NewIntent(Application.Context, _crime.Id);
+            Application.Context.StartActivity(intent);
         }
     }
 }
