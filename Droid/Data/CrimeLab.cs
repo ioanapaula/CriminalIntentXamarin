@@ -38,5 +38,10 @@ namespace CriminalIntentXamarin.Droid.Data
         {
             return Crimes.FirstOrDefault(crime => crime.Id.Equals(id));
         }
+
+        /*public int GetCrimePosition(Crime crime)
+        {
+            return Crimes.IndexOf(crime);
+        }*/
     }
 }

@@ -6,11 +6,13 @@ using Android.Support.V4.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using Java.Util;
 
 namespace CriminalIntentXamarin.Droid.Data
 {
-    public class CrimeListFragment : Fragment
+    public class CrimeListFragment : Fragment, IItemClickedListener
     {
+        private const int RequestCrime = 1;
         private RecyclerView _crimeRecyclerView;
         private CrimeAdapter _adapter;
 
@@ -25,11 +27,23 @@ namespace CriminalIntentXamarin.Droid.Data
             return view;
         }
 
-        public override void OnResume()
+        public void OnItemClicked(int crimePosition, UUID crimeId)
         {
-            base.OnResume();
+            var intent = CrimeActivity.NewIntent(Activity, crimePosition, crimeId);
+            StartActivityForResult(intent, RequestCrime);
+        }
 
-            UpdateUI();
+        public override void OnActivityResult(int requestCode, int resultCode, Intent data)
+        {
+            if (requestCode == RequestCrime)
+            {
+                if (data == null)
+                {       
+                    return;
+                }
+
+                _adapter.NotifyItemChanged(CrimeFragment.GetPosition(data));
+            }
         }
 
         private void UpdateUI()
@@ -39,12 +53,8 @@ namespace CriminalIntentXamarin.Droid.Data
 
             if (_adapter == null)
             {
-                _adapter = new CrimeAdapter(crimes);
+                _adapter = new CrimeAdapter(crimes, this);
                 _crimeRecyclerView.SetAdapter(_adapter);
-            }
-            else
-            {
-                _adapter.NotifyDataSetChanged();
             }
         }
 
@@ -53,11 +63,14 @@ namespace CriminalIntentXamarin.Droid.Data
             private const int SimpleCrimeViewType = 0;
             private const int SeriousCrimeViewType = 1;
 
+            private IItemClickedListener _itemClickedListener;
+
             private List<Crime> _crimes;
 
-            public CrimeAdapter(List<Crime> crimes)
+            public CrimeAdapter(List<Crime> crimes, IItemClickedListener itemClickedListener)
             {
                 _crimes = crimes;
+                _itemClickedListener = itemClickedListener;
             }
 
             public override int ItemCount => _crimes.Count;
@@ -95,6 +108,8 @@ namespace CriminalIntentXamarin.Droid.Data
                 var crimeHolder = holder as CustomViewHolder;
                 var crime = _crimes[position];
                 crimeHolder.Bind(crime);
+
+                crimeHolder.ItemClickedListener = _itemClickedListener;
             }
         }
 

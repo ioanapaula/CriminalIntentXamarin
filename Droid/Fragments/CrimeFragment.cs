@@ -1,6 +1,8 @@
 ﻿using System;
+using Android.Content;
 using Android.OS;
 using Android.Support.V4.App;
+using Android.Text;
 using Android.Views;
 using Android.Widget;
 using Java.Util;
@@ -10,36 +12,47 @@ namespace CriminalIntentXamarin.Droid.Data
     public class CrimeFragment : Fragment
     {
         private const string ArgCrimeId = "crime_id";
+        private const string ArgCrimePosition = "crime_position";
+        private const string ExtraPosition = "crime_position";
         private Crime _crime;
+        private CrimeLab _crimeLab;
         private EditText _titleField;
         private Button _dateButton;
         private CheckBox _solvedCheckBox;
 
-        public static CrimeFragment NewInstance(UUID crimeId)
+        public static CrimeFragment NewInstance(int crimePosition, UUID crimeId)
         {
             var args = new Bundle();
             args.PutSerializable(ArgCrimeId, crimeId);
+            args.PutInt(ArgCrimePosition, crimePosition);
 
             var fragment = new CrimeFragment
             {
                 Arguments = args
             };
+
             return fragment;
+        }
+
+        public static int GetPosition(Intent result)
+        {
+            return result.GetIntExtra(ExtraPosition, 0);
         }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            UUID crimeId = (UUID)Arguments.GetSerializable(ArgCrimeId);
-            var crimeLab = CrimeLab.Get(Activity.ApplicationContext);
-            _crime = crimeLab.GetCrime(crimeId);
+            var crimeId = (UUID)Arguments.GetSerializable(ArgCrimeId);
+            _crimeLab = CrimeLab.Get(Activity.ApplicationContext);
+            _crime = _crimeLab.GetCrime(crimeId);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.fragment_crime, container, false);
             InitFields(view);
+            SetActivityResult();
 
             _titleField.Text = _crime.Title;
             _titleField.TextChanged += TextChanged;
@@ -51,10 +64,16 @@ namespace CriminalIntentXamarin.Droid.Data
             return view;
         }
 
-
-        private void TextChanged(object sender, EventArgs e)
+        public void SetActivityResult()
         {
-            _crime.Title = _titleField.Text;
+            var data = new Intent();
+            data.PutExtra(ExtraPosition, Arguments.GetInt(ArgCrimePosition));
+            Activity.SetResult(Android.App.Result.Ok, data);
+        }
+
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            _crime.Title = e.Text.ToString();
         }
 
         private void CheckBoxChecked(object sender, CompoundButton.CheckedChangeEventArgs e)

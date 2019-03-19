@@ -5,10 +5,16 @@ using Android.Views;
 using Android.Widget;
 using CriminalIntentXamarin.Droid.Data;
 using Java.Text;
+using Java.Util;
 using static Android.Support.V7.Widget.RecyclerView;
 
 namespace CriminalIntentXamarin.Droid
 {
+    public interface IItemClickedListener
+    {
+        void OnItemClicked(int position, UUID crimeId);
+    }
+
     public abstract class CustomViewHolder : ViewHolder
     {
         private TextView _titleTextView;
@@ -24,6 +30,8 @@ namespace CriminalIntentXamarin.Droid
             ItemView.Click += ItemViewClicked;
         }
 
+        public IItemClickedListener ItemClickedListener { get; set; }
+
         public void Bind(Crime crime)
         {
             var simpleFormat = new SimpleDateFormat("EEEE, MMM d, yyyy");
@@ -35,8 +43,7 @@ namespace CriminalIntentXamarin.Droid
 
         protected void ItemViewClicked(object sender, EventArgs e)
         {
-            var intent = CrimeActivity.NewIntent(Application.Context, _crime.Id);
-            Application.Context.StartActivity(intent);
+            ItemClickedListener.OnItemClicked(AdapterPosition, _crime.Id);
         }
     }
 }
