@@ -147,7 +147,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="Activities\CrimeActivity.cs" />
     <Compile Include="Data\Crime.cs" />
     <Compile Include="Data\CrimeLab.cs" />
     <Compile Include="Activities\CrimeListActivity.cs" />
@@ -155,6 +154,7 @@
     <Compile Include="Fragments\CrimeFragment.cs" />
     <Compile Include="CustomViewHolder.cs" />
     <Compile Include="Activities\SingleFragmentActivity.cs" />
+    <Compile Include="Activities\CrimePagerActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -184,6 +184,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_solved.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_solved.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_solved.png" />
+    <AndroidResource Include="Resources\layout\activity_crime_pager.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />

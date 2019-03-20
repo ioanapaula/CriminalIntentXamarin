@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
 using Android.Views;
+using CriminalIntentXamarin.Droid.Activities;
 using Java.Util;
 
 namespace CriminalIntentXamarin.Droid.Data
@@ -25,23 +26,17 @@ namespace CriminalIntentXamarin.Droid.Data
             return view;
         }
 
-        public void OnItemClicked(int crimePosition, UUID crimeId)
+        public override void OnResume()
         {
-            var intent = CrimeActivity.NewIntent(Activity, crimePosition, crimeId);
-            StartActivityForResult(intent, RequestCrime);
+            base.OnResume();
+
+            _adapter.NotifyDataSetChanged();
         }
 
-        public override void OnActivityResult(int requestCode, int resultCode, Intent data)
+        public void OnItemClicked(UUID crimeId)
         {
-            if (requestCode == RequestCrime)
-            {
-                if (data == null)
-                {       
-                    return;
-                }
-
-                _adapter.NotifyItemChanged(CrimeFragment.GetPosition(data));
-            }
+            var intent = CrimePagerActivity.NewIntent(Activity, crimeId);
+            StartActivity(intent);
         }
 
         private void UpdateUI()

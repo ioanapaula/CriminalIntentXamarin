@@ -12,31 +12,22 @@ namespace CriminalIntentXamarin.Droid.Data
     public class CrimeFragment : Fragment
     {
         private const string ArgCrimeId = "crime_id";
-        private const string ArgCrimePosition = "crime_position";
-        private const string ExtraPosition = "crime_position";
         private Crime _crime;
         private CrimeLab _crimeLab;
         private EditText _titleField;
         private Button _dateButton;
         private CheckBox _solvedCheckBox;
 
-        public static CrimeFragment NewInstance(int crimePosition, UUID crimeId)
+        public static CrimeFragment NewInstance(UUID crimeId)
         {
             var args = new Bundle();
             args.PutSerializable(ArgCrimeId, crimeId);
-            args.PutInt(ArgCrimePosition, crimePosition);
-
             var fragment = new CrimeFragment
             {
                 Arguments = args
             };
 
             return fragment;
-        }
-
-        public static int GetPosition(Intent result)
-        {
-            return result.GetIntExtra(ExtraPosition, 0);
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -52,7 +43,6 @@ namespace CriminalIntentXamarin.Droid.Data
         {
             var view = inflater.Inflate(Resource.Layout.fragment_crime, container, false);
             InitFields(view);
-            SetActivityResult();
 
             _titleField.Text = _crime.Title;
             _titleField.TextChanged += TextChanged;
@@ -62,13 +52,6 @@ namespace CriminalIntentXamarin.Droid.Data
             _solvedCheckBox.CheckedChange += CheckBoxChecked;
 
             return view;
-        }
-
-        private void SetActivityResult()
-        {
-            var data = new Intent();
-            data.PutExtra(ExtraPosition, Arguments.GetInt(ArgCrimePosition));
-            Activity.SetResult(Android.App.Result.Ok, data);
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
