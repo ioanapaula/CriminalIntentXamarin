@@ -47,7 +47,6 @@ namespace CriminalIntentXamarin.Droid.Data
         {
             _titleField = view.FindViewById<EditText>(Resource.Id.crime_title);
             _dateButton = view.FindViewById<Button>(Resource.Id.crime_date);
-            _solvedCheckBox = view.FindViewById<CheckBox>(Resource.Id.crime_solved);
         }
     }
 }
