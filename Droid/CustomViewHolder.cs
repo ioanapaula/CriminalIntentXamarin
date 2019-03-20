@@ -12,7 +12,7 @@ namespace CriminalIntentXamarin.Droid
 {
     public interface IItemClickedListener
     {
-        void OnItemClicked(int position, UUID crimeId);
+        void OnItemClicked(UUID crimeId);
     }
 
     public abstract class CustomViewHolder : ViewHolder
@@ -43,7 +43,7 @@ namespace CriminalIntentXamarin.Droid
 
         protected void ItemViewClicked(object sender, EventArgs e)
         {
-            ItemClickedListener.OnItemClicked(AdapterPosition, _crime.Id);
+            ItemClickedListener.OnItemClicked(_crime.Id);
         }
     }
 }
