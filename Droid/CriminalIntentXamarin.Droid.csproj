@@ -155,6 +155,7 @@
     <Compile Include="CustomViewHolder.cs" />
     <Compile Include="Activities\SingleFragmentActivity.cs" />
     <Compile Include="Activities\CrimePagerActivity.cs" />
+    <Compile Include="Fragments\DatePickerFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -185,6 +186,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_solved.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_solved.png" />
     <AndroidResource Include="Resources\layout\activity_crime_pager.axml" />
+    <AndroidResource Include="Resources\layout\dialog_date.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />
