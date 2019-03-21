@@ -156,6 +156,7 @@
     <Compile Include="Activities\SingleFragmentActivity.cs" />
     <Compile Include="Activities\CrimePagerActivity.cs" />
     <Compile Include="Fragments\DatePickerFragment.cs" />
+    <Compile Include="Fragments\TimePickerFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -187,6 +188,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_solved.png" />
     <AndroidResource Include="Resources\layout\activity_crime_pager.axml" />
     <AndroidResource Include="Resources\layout\dialog_date.axml" />
+    <AndroidResource Include="Resources\layout\dialog_time.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />
