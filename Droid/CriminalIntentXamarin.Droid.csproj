@@ -157,6 +157,7 @@
     <Compile Include="Activities\CrimePagerActivity.cs" />
     <Compile Include="Fragments\DatePickerFragment.cs" />
     <Compile Include="Fragments\TimePickerFragment.cs" />
+    <Compile Include="Activities\PickerActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

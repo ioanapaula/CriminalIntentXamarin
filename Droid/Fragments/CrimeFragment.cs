@@ -8,6 +8,7 @@ using Android.Support.V7.App;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
+using CriminalIntentXamarin.Droid.Activities;
 using CriminalIntentXamarin.Droid.Fragments;
 using Java.Util;
 
@@ -101,9 +102,8 @@ namespace CriminalIntentXamarin.Droid.Data
         private void DateButtonClicked(object sender, EventArgs e)
         {
             var fm = Activity.SupportFragmentManager;
-            var dialog = DatePickerFragment.NewInstance(_crime.Date);
-            dialog.SetTargetFragment(this, RequestDate);
-            dialog.Show(fm, DialogDate);
+            var intent = PickerActivity.NewIntent(Activity, _crime.Date);
+            StartActivityForResult(intent, RequestDate);
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
