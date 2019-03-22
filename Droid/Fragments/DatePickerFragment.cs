@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
@@ -12,6 +13,7 @@ namespace CriminalIntentXamarin.Droid.Fragments
         public const string ExtraDate = "com.companyname.criminalintentxamarin.crime_date";
         private const string ArgDate = "date";
         private DatePicker _datePicker;
+        private Button _datePickerButton;
 
         public static DatePickerFragment NewInstance(Date date)
         {
@@ -26,8 +28,10 @@ namespace CriminalIntentXamarin.Droid.Fragments
             return fragment;
         }
 
-        public override Dialog OnCreateDialog(Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            var view = LayoutInflater.From(Activity).Inflate(Resource.Layout.dialog_date, null);
+
             var date = (Date)Arguments.GetSerializable(ArgDate);
             var calendar = Calendar.Instance;
             calendar.Time = date;
@@ -35,37 +39,35 @@ namespace CriminalIntentXamarin.Droid.Fragments
             var month = calendar.Get(CalendarField.Month);
             var day = calendar.Get(CalendarField.DayOfMonth);
 
-            var view = LayoutInflater.From(Activity).Inflate(Resource.Layout.dialog_date, null);
-
             _datePicker = view.FindViewById<DatePicker>(Resource.Id.dialog_date_picker);
             _datePicker.Init(year, month, day, null);
 
-            return new Android.Support.V7.App.AlertDialog.Builder(Activity)
-                .SetView(view)
-                .SetTitle(Resource.String.date_picker_title)
-                .SetPositiveButton(Android.Resource.String.Ok, OkAction)
-                .Create();
+            _datePickerButton = view.FindViewById<Button>(Resource.Id.date_picker_ok);
+            _datePickerButton.Click += OkAction;
+
+            return view;
         }
 
-        private void OkAction(object sender, DialogClickEventArgs e)
+        private void OkAction(object sender, EventArgs e)
         {
             var year = _datePicker.Year;
             var month = _datePicker.Month;
             var day = _datePicker.DayOfMonth;
             var date = new GregorianCalendar(year, month, day).Time;
-            SendResult((int)Result.Ok, date);
+            SendResult(date);
         }
 
-        private void SendResult(int resultCode, Date date)
+        private void SendResult(Date date)
         {
-            if (TargetFragment == null)
-            {
-                return;
-            }
-
             var intent = new Intent();
             intent.PutExtra(ExtraDate, date);
-            TargetFragment.OnActivityResult(TargetRequestCode, resultCode, intent);
+
+            if (TargetFragment == null)
+            {
+                Activity.SetResult(Result.Ok, intent);
+            }
+
+            Activity.Finish();
         }
     }
 }
