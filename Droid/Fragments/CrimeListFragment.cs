@@ -110,6 +110,7 @@ namespace CriminalIntentXamarin.Droid.Data
             }
             else
             {
+                _adapter.SetCrimes(crimes);
                 _adapter.NotifyDataSetChanged();
             }
 
@@ -141,6 +142,11 @@ namespace CriminalIntentXamarin.Droid.Data
             }
 
             public override int ItemCount => _crimes.Count;
+
+            public void SetCrimes(List<Crime> crimes)
+            {
+                _crimes = crimes;
+            }
 
             public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
             {

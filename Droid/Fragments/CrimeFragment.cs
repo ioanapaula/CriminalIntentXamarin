@@ -39,8 +39,15 @@ namespace CriminalIntentXamarin.Droid.Data
             base.OnCreate(savedInstanceState);
 
             var crimeId = (UUID)Arguments.GetSerializable(ArgCrimeId);
-            _crimeLab = CrimeLab.Get(Activity.ApplicationContext);
+            _crimeLab = CrimeLab.Get(Activity);
             _crime = _crimeLab.GetCrime(crimeId);
+        }
+
+        public override void OnPause()
+        {
+            base.OnPause();
+
+            CrimeLab.Get(Activity).UpdateCrime(_crime);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

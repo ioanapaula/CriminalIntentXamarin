@@ -155,6 +155,10 @@
     <Compile Include="Activities\SingleFragmentActivity.cs" />
     <Compile Include="Activities\CrimePagerActivity.cs" />
     <Compile Include="Fragments\DatePickerFragment.cs" />
+    <Compile Include="DataBase\CrimeDbSchema.cs" />
+    <Compile Include="DataBase\CrimeBaseHelper.cs" />
+    <Compile Include="DataBase\CrimeCursorWrapper.cs" />
+    <Compile Include="CriminalIntentApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -192,6 +196,7 @@
     <Folder Include="Data\" />
     <Folder Include="Fragments\" />
     <Folder Include="Resources\menu\" />
+    <Folder Include="DataBase\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\StyleCop.MSBuild.6.0.0\build\StyleCop.MSBuild.targets" Condition="Exists('..\packages\StyleCop.MSBuild.6.0.0\build\StyleCop.MSBuild.targets')" />
