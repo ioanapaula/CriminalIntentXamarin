@@ -18,7 +18,5 @@ namespace CriminalIntentXamarin.Droid.Data
         public Date Date { get; set; }
 
         public bool Solved { get; set; }
-
-        public bool RequiresPolice { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using Java.Util;
 
 namespace CriminalIntentXamarin.Droid.Activities
 {
-    [Activity(Label = "CriminalIntentXamarin", Theme = "@style/AppTheme")]
+    [Activity(Label = "CriminalIntentXamarin", Theme = "@style/AppTheme", ParentActivity = typeof(CrimeListActivity))]
     public class CrimePagerActivity : AppCompatActivity
     {
         private const string ExtraCrimeId = "com.companyname.criminalintentxamarin.crime_id";
