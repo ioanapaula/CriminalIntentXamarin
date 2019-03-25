@@ -5,17 +5,21 @@ namespace CriminalIntentXamarin.Droid.Data
 {
     public class Crime
     {
-        public Crime()
+        public Crime() : this(UUID.RandomUUID())
         {
-            this.Id = UUID.RandomUUID();
-            this.Date = new Date();
+        }
+
+        public Crime(UUID id)
+        {
+            Id = id;
+            Date = new Date();
         }
 
         public UUID Id { get; }
 
         public string Title { get; set; }
 
-        public Date Date { get; set; }
+        public Date Date { get; set; } 
 
         public bool Solved { get; set; }
     }
