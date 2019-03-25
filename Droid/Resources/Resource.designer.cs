@@ -2128,17 +2128,17 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070051
 			public const int action_bar_title = 2131165265;
 			
-			// aapt resource value: 0x7f070090
-			public const int action_container = 2131165328;
+			// aapt resource value: 0x7f07008f
+			public const int action_container = 2131165327;
 			
 			// aapt resource value: 0x7f070076
 			public const int action_context_bar = 2131165302;
 			
-			// aapt resource value: 0x7f07009b
-			public const int action_divider = 2131165339;
+			// aapt resource value: 0x7f07009a
+			public const int action_divider = 2131165338;
 			
-			// aapt resource value: 0x7f070091
-			public const int action_image = 2131165329;
+			// aapt resource value: 0x7f070090
+			public const int action_image = 2131165328;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -2155,11 +2155,11 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070053
 			public const int action_mode_close_button = 2131165267;
 			
-			// aapt resource value: 0x7f070092
-			public const int action_text = 2131165330;
+			// aapt resource value: 0x7f070091
+			public const int action_text = 2131165329;
 			
-			// aapt resource value: 0x7f07009c
-			public const int actions = 2131165340;
+			// aapt resource value: 0x7f07009b
+			public const int actions = 2131165339;
 			
 			// aapt resource value: 0x7f070054
 			public const int activity_chooser_view_content = 2131165268;
@@ -2209,8 +2209,8 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07006e
 			public const int checkbox = 2131165294;
 			
-			// aapt resource value: 0x7f07009a
-			public const int chronometer = 2131165338;
+			// aapt resource value: 0x7f070099
+			public const int chronometer = 2131165337;
 			
 			// aapt resource value: 0x7f070037
 			public const int clip_horizontal = 2131165239;
@@ -2311,8 +2311,8 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070059
 			public const int icon = 2131165273;
 			
-			// aapt resource value: 0x7f07009d
-			public const int icon_group = 2131165341;
+			// aapt resource value: 0x7f07009c
+			public const int icon_group = 2131165340;
 			
 			// aapt resource value: 0x7f07002f
 			public const int ifRoom = 2131165231;
@@ -2320,14 +2320,11 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070056
 			public const int image = 2131165270;
 			
-			// aapt resource value: 0x7f07008f
-			public const int imageButton = 2131165327;
-			
 			// aapt resource value: 0x7f07008e
 			public const int imageView = 2131165326;
 			
-			// aapt resource value: 0x7f070096
-			public const int info = 2131165334;
+			// aapt resource value: 0x7f070095
+			public const int info = 2131165333;
 			
 			// aapt resource value: 0x7f070041
 			public const int invisible = 2131165249;
@@ -2368,20 +2365,23 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070030
 			public const int never = 2131165232;
 			
+			// aapt resource value: 0x7f07009d
+			public const int new_crime = 2131165341;
+			
 			// aapt resource value: 0x7f070017
 			public const int none = 2131165207;
 			
 			// aapt resource value: 0x7f070013
 			public const int normal = 2131165203;
 			
-			// aapt resource value: 0x7f070098
-			public const int notification_background = 2131165336;
-			
-			// aapt resource value: 0x7f070094
-			public const int notification_main_column = 2131165332;
+			// aapt resource value: 0x7f070097
+			public const int notification_background = 2131165335;
 			
 			// aapt resource value: 0x7f070093
-			public const int notification_main_column_container = 2131165331;
+			public const int notification_main_column = 2131165331;
+			
+			// aapt resource value: 0x7f070092
+			public const int notification_main_column_container = 2131165330;
 			
 			// aapt resource value: 0x7f070046
 			public const int packed = 2131165254;
@@ -2407,11 +2407,11 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07003d
 			public const int right = 2131165245;
 			
-			// aapt resource value: 0x7f070097
-			public const int right_icon = 2131165335;
+			// aapt resource value: 0x7f070096
+			public const int right_icon = 2131165334;
 			
-			// aapt resource value: 0x7f070095
-			public const int right_side = 2131165333;
+			// aapt resource value: 0x7f070094
+			public const int right_side = 2131165332;
 			
 			// aapt resource value: 0x7f07001e
 			public const int screen = 2131165214;
@@ -2470,6 +2470,9 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07001a
 			public const int showTitle = 2131165210;
 			
+			// aapt resource value: 0x7f07009e
+			public const int show_subtitle = 2131165342;
+			
 			// aapt resource value: 0x7f07005b
 			public const int spacer = 2131165275;
 			
@@ -2527,8 +2530,8 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070060
 			public const int textSpacerNoTitle = 2131165280;
 			
-			// aapt resource value: 0x7f070099
-			public const int time = 2131165337;
+			// aapt resource value: 0x7f070098
+			public const int time = 2131165336;
 			
 			// aapt resource value: 0x7f070011
 			public const int title = 2131165201;
@@ -2707,37 +2710,34 @@ namespace CriminalIntentXamarin.Droid
 			public const int list_item_crime = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int list_item_serious_crime = 2130968610;
+			public const int notification_action = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int notification_action = 2130968611;
+			public const int notification_action_tombstone = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int notification_action_tombstone = 2130968612;
+			public const int notification_template_custom_big = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int notification_template_custom_big = 2130968613;
+			public const int notification_template_icon_group = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int notification_template_icon_group = 2130968614;
+			public const int notification_template_part_chronometer = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int notification_template_part_chronometer = 2130968615;
+			public const int notification_template_part_time = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int notification_template_part_time = 2130968616;
+			public const int select_dialog_item_material = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int select_dialog_item_material = 2130968617;
+			public const int select_dialog_multichoice_material = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int select_dialog_multichoice_material = 2130968618;
+			public const int select_dialog_singlechoice_material = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int select_dialog_singlechoice_material = 2130968619;
-			
-			// aapt resource value: 0x7f04002c
-			public const int support_simple_spinner_dropdown_item = 2130968620;
+			public const int support_simple_spinner_dropdown_item = 2130968619;
 			
 			static Layout()
 			{
@@ -2745,6 +2745,22 @@ namespace CriminalIntentXamarin.Droid
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0d0000
+			public const int fragment_crime_list = 2131558400;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}
@@ -2891,9 +2907,6 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f080029
 			public const int app_name = 2131230761;
 			
-			// aapt resource value: 0x7f08002f
-			public const int call_police = 2131230767;
-			
 			// aapt resource value: 0x7f08002d
 			public const int crime_details_label = 2131230765;
 			
@@ -2906,14 +2919,26 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f08002c
 			public const int crime_title_label = 2131230764;
 			
+			// aapt resource value: 0x7f08002f
+			public const int date_picker_title = 2131230767;
+			
+			// aapt resource value: 0x7f080032
+			public const int hide_subtitle = 2131230770;
+			
 			// aapt resource value: 0x7f080030
-			public const int date_picker_title = 2131230768;
+			public const int new_crime = 2131230768;
 			
 			// aapt resource value: 0x7f08001b
 			public const int search_menu_title = 2131230747;
 			
+			// aapt resource value: 0x7f080031
+			public const int show_subtitle = 2131230769;
+			
 			// aapt resource value: 0x7f080028
 			public const int status_bar_notification_info_overflow = 2131230760;
+			
+			// aapt resource value: 0x7f080033
+			public const int subtitle_format = 2131230771;
 			
 			static String()
 			{

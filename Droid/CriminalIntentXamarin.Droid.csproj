@@ -152,7 +152,6 @@
     <Compile Include="Activities\CrimeListActivity.cs" />
     <Compile Include="Fragments\CrimeListFragment.cs" />
     <Compile Include="Fragments\CrimeFragment.cs" />
-    <Compile Include="CustomViewHolder.cs" />
     <Compile Include="Activities\SingleFragmentActivity.cs" />
     <Compile Include="Activities\CrimePagerActivity.cs" />
     <Compile Include="Fragments\DatePickerFragment.cs" />
@@ -179,7 +178,6 @@
     <AndroidResource Include="Resources\layout\fragment_crime.axml" />
     <AndroidResource Include="Resources\layout\fragment_crime_list.axml" />
     <AndroidResource Include="Resources\layout\list_item_crime.axml" />
-    <AndroidResource Include="Resources\layout\list_item_serious_crime.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_solved.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_solved.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_solved.png" />
@@ -187,11 +185,13 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_solved.png" />
     <AndroidResource Include="Resources\layout\activity_crime_pager.axml" />
     <AndroidResource Include="Resources\layout\dialog_date.axml" />
+    <AndroidResource Include="Resources\menu\fragment_crime_list.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />
     <Folder Include="Data\" />
     <Folder Include="Fragments\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\StyleCop.MSBuild.6.0.0\build\StyleCop.MSBuild.targets" Condition="Exists('..\packages\StyleCop.MSBuild.6.0.0\build\StyleCop.MSBuild.targets')" />
