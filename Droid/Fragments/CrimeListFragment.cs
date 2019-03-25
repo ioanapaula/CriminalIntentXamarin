@@ -19,6 +19,8 @@ namespace CriminalIntentXamarin.Droid.Data
         private const int RequestCrime = 1;
         private RecyclerView _crimeRecyclerView;
         private CrimeAdapter _adapter;
+        private LinearLayout _newCrimeLayout;
+        private Button _addCrimeButton;
         private bool _subtitleVisible;
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -33,6 +35,10 @@ namespace CriminalIntentXamarin.Droid.Data
             View view = inflater.Inflate(Resource.Layout.fragment_crime_list, container, false);
             _crimeRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.crime_recycler_view);
             _crimeRecyclerView.SetLayoutManager(new LinearLayoutManager(container.Context));
+
+            _newCrimeLayout = view.FindViewById<LinearLayout>(Resource.Id.empty_list_layout);
+            _addCrimeButton = view.FindViewById<Button>(Resource.Id.add_crime);
+            _addCrimeButton.Click += NewCrimeButtonClicked;
 
             if (savedInstanceState != null)
             {
@@ -68,14 +74,11 @@ namespace CriminalIntentXamarin.Droid.Data
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
-        {
+        { 
            switch (item.ItemId)
             {
                 case Resource.Id.new_crime:
-                    var crime = new Crime();
-                    CrimeLab.Get(Activity).AddCrime(crime);
-                    var intent = CrimePagerActivity.NewIntent(Activity, crime.Id);
-                    StartActivity(intent);
+                    OpenCrime();
 
                     return true;
 
@@ -111,16 +114,38 @@ namespace CriminalIntentXamarin.Droid.Data
             else
             {
                 _adapter.NotifyDataSetChanged();
+
+                if (_adapter.ItemCount == 0)
+                {
+                    _newCrimeLayout.Visibility = ViewStates.Visible;
+                }
+                else
+                {
+                    _newCrimeLayout.Visibility = ViewStates.Gone;
+                }
             }
 
             UpdateSubtitle();
+        }
+
+        private void NewCrimeButtonClicked(object sender, EventArgs e)
+        {
+            OpenCrime();
+        }
+
+        private void OpenCrime()
+        {
+            var crime = new Crime();
+            CrimeLab.Get(Activity).AddCrime(crime);
+            var intent = CrimePagerActivity.NewIntent(Activity, crime.Id);
+            StartActivity(intent);
         }
 
         private void UpdateSubtitle()
         {
             CrimeLab crimeLab = CrimeLab.Get(Activity);
             var crimeCount = crimeLab.Crimes.Count;
-            var subtitle = GetString(Resource.String.subtitle_format, crimeCount);
+            var subtitle = Resources.GetQuantityString(Resource.Plurals.subtitle_plural, crimeCount, crimeCount);
 
             if (!_subtitleVisible)
             {
