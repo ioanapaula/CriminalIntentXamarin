@@ -120,7 +120,7 @@ namespace CriminalIntentXamarin.Droid.Data
         {
             CrimeLab crimeLab = CrimeLab.Get(Activity);
             var crimeCount = crimeLab.Crimes.Count;
-            var subtitle = GetString(Resource.String.subtitle_format, crimeCount);
+            var subtitle = Resources.GetQuantityString(Resource.Plurals.subtitle_plural, crimeCount, crimeCount);
 
             if (!_subtitleVisible)
             {
