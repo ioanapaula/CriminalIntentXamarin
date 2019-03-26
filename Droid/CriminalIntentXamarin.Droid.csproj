@@ -190,6 +190,7 @@
     <AndroidResource Include="Resources\layout\activity_crime_pager.axml" />
     <AndroidResource Include="Resources\layout\dialog_date.axml" />
     <AndroidResource Include="Resources\menu\fragment_crime_list.xml" />
+    <AndroidResource Include="Resources\menu\fragment_crime.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />

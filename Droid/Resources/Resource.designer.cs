@@ -2254,6 +2254,9 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070057
 			public const int default_activity_button = 2131165271;
 			
+			// aapt resource value: 0x7f07009d
+			public const int delete_crime = 2131165341;
+			
 			// aapt resource value: 0x7f070087
 			public const int dialog_date_picker = 2131165319;
 			
@@ -2365,8 +2368,8 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f070030
 			public const int never = 2131165232;
 			
-			// aapt resource value: 0x7f07009d
-			public const int new_crime = 2131165341;
+			// aapt resource value: 0x7f07009e
+			public const int new_crime = 2131165342;
 			
 			// aapt resource value: 0x7f070017
 			public const int none = 2131165207;
@@ -2470,8 +2473,8 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f07001a
 			public const int showTitle = 2131165210;
 			
-			// aapt resource value: 0x7f07009e
-			public const int show_subtitle = 2131165342;
+			// aapt resource value: 0x7f07009f
+			public const int show_subtitle = 2131165343;
 			
 			// aapt resource value: 0x7f07005b
 			public const int spacer = 2131165275;
@@ -2753,7 +2756,10 @@ namespace CriminalIntentXamarin.Droid
 		{
 			
 			// aapt resource value: 0x7f0d0000
-			public const int fragment_crime_list = 2131558400;
+			public const int fragment_crime = 2131558400;
+			
+			// aapt resource value: 0x7f0d0001
+			public const int fragment_crime_list = 2131558401;
 			
 			static Menu()
 			{
@@ -2922,8 +2928,11 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f08002f
 			public const int date_picker_title = 2131230767;
 			
-			// aapt resource value: 0x7f080032
-			public const int hide_subtitle = 2131230770;
+			// aapt resource value: 0x7f080031
+			public const int delete_crime = 2131230769;
+			
+			// aapt resource value: 0x7f080033
+			public const int hide_subtitle = 2131230771;
 			
 			// aapt resource value: 0x7f080030
 			public const int new_crime = 2131230768;
@@ -2931,14 +2940,14 @@ namespace CriminalIntentXamarin.Droid
 			// aapt resource value: 0x7f08001b
 			public const int search_menu_title = 2131230747;
 			
-			// aapt resource value: 0x7f080031
-			public const int show_subtitle = 2131230769;
+			// aapt resource value: 0x7f080032
+			public const int show_subtitle = 2131230770;
 			
 			// aapt resource value: 0x7f080028
 			public const int status_bar_notification_info_overflow = 2131230760;
 			
-			// aapt resource value: 0x7f080033
-			public const int subtitle_format = 2131230771;
+			// aapt resource value: 0x7f080034
+			public const int subtitle_format = 2131230772;
 			
 			static String()
 			{
