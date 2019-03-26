@@ -41,6 +41,8 @@ namespace CriminalIntentXamarin.Droid.Data
             var crimeId = (UUID)Arguments.GetSerializable(ArgCrimeId);
             _crimeLab = CrimeLab.Get(Activity);
             _crime = _crimeLab.GetCrime(crimeId);
+
+            HasOptionsMenu = true;
         }
 
         public override void OnPause()
@@ -63,6 +65,26 @@ namespace CriminalIntentXamarin.Droid.Data
             _solvedCheckBox.CheckedChange += CheckBoxChecked;
 
             return view;
+        }
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            base.OnCreateOptionsMenu(menu, inflater);
+
+            inflater.Inflate(Resource.Menu.fragment_crime, menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.delete_crime:
+                    _crimeLab.DeleteCrime(_crime);
+                    Activity.Finish();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
 
         public override void OnActivityResult(int requestCode, int resultCode, Intent data)

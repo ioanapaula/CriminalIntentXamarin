@@ -98,6 +98,12 @@ namespace CriminalIntentXamarin.Droid.Data
             _database.Update(CrimeTable.Name, contentValues, CrimeTable.Cols.Uuid + " = ?", new string[] { uuidString });
         }
 
+        public void DeleteCrime(Crime crime)
+        {
+            var uuidString = crime.Id.ToString();
+            _database.Delete(CrimeTable.Name, CrimeTable.Cols.Uuid + " = ?", new string[] { uuidString });
+        }
+
         private CrimeCursorWrapper QueryCrimes(string whereClause, string[] whereArgs)
         {
             var cursor = _database.Query(
