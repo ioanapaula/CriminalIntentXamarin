@@ -16,7 +16,7 @@ namespace CriminalIntentXamarin.Droid.Data
 
         private CrimeLab(Context context)
         {
-            _context = context;
+            _context = context.ApplicationContext;
             _database = new CrimeBaseHelper(_context).WritableDatabase;
         }
 
@@ -96,6 +96,12 @@ namespace CriminalIntentXamarin.Droid.Data
             var contentValues = GetContentValues(crime);
 
             _database.Update(CrimeTable.Name, contentValues, CrimeTable.Cols.Uuid + " = ?", new string[] { uuidString });
+        }
+
+        public void DeleteCrime(Crime crime)
+        {
+            var uuidString = crime.Id.ToString();
+            _database.Delete(CrimeTable.Name, CrimeTable.Cols.Uuid + " = ?", new string[] { uuidString });
         }
 
         private CrimeCursorWrapper QueryCrimes(string whereClause, string[] whereArgs)
