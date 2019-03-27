@@ -131,11 +131,12 @@ namespace CriminalIntentXamarin.Droid.Data
 
         private void ReportButtonClicked(object sender, EventArgs e)
         {
-            var intent = new Intent(Intent.ActionSend);
-            intent.SetType("text/plain");
-            intent.PutExtra(Intent.ExtraText, GetCrimeReport());
-            intent.PutExtra(Intent.ExtraSubject, GetString(Resource.String.crime_report_subject));
-            intent = Intent.CreateChooser(intent, GetString(Resource.String.send_report));
+            var intent = ShareCompat.IntentBuilder.From(Activity)
+                                .SetType("text/plain")
+                                .SetText(GetCrimeReport())
+                                .SetSubject(GetString(Resource.String.crime_report_subject))
+                                .SetChooserTitle(Resource.String.send_report)
+                                .CreateChooserIntent();
             StartActivity(intent);
         }
 
