@@ -14,6 +14,7 @@ namespace CriminalIntentXamarin.Droid.DataBase
                 public const string Title = "title";
                 public const string Date = "date"; 
                 public const string Solved = "solved";
+                public const string Suspect = "suspect";
             }
         }
     }
