@@ -21,7 +21,8 @@ namespace CriminalIntentXamarin.Droid.DataBase
                 CrimeTable.Cols.Uuid + ", " +
                 CrimeTable.Cols.Title + ", " +
                 CrimeTable.Cols.Date + ", " +
-                CrimeTable.Cols.Solved +
+                CrimeTable.Cols.Solved + ", " +
+                CrimeTable.Cols.Suspect +
                 ")");
         }
 
