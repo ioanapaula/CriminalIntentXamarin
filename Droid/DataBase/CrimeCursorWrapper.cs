@@ -18,13 +18,15 @@ namespace CriminalIntentXamarin.Droid.DataBase
             var title = GetString(GetColumnIndex(CrimeTable.Cols.Title));
             var date = GetLong(GetColumnIndex(CrimeTable.Cols.Date));
             var isSolved = GetInt(GetColumnIndex(CrimeTable.Cols.Solved));
-            var suspect = GetString(GetColumnIndex(CrimeTable.Cols.Suspect));
+            var suspectName = GetString(GetColumnIndex(CrimeTable.Cols.SuspectName));
+            var suspectNumber = GetString(GetColumnIndex(CrimeTable.Cols.SuspectNumber));
 
             var crime = new Crime(UUID.FromString(uuidString));
             crime.Title = title;
             crime.Date = new Date(date);
             crime.Solved = isSolved != 0;
-            crime.Suspect = suspect;
+            crime.SuspectName = suspectName;
+            crime.SuspectNumber = suspectNumber;
 
             return crime;
         }
