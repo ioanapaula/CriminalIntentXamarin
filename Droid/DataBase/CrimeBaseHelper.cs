@@ -17,12 +17,13 @@ namespace CriminalIntentXamarin.Droid.DataBase
         public override void OnCreate(SQLiteDatabase db)
         {
             db.ExecSQL("create table " + CrimeTable.Name + "(" +
-                " _id integer primary key autoincrement, " + 
+                " _id integer primary key autoincrement, " +
                 CrimeTable.Cols.Uuid + ", " +
                 CrimeTable.Cols.Title + ", " +
                 CrimeTable.Cols.Date + ", " +
                 CrimeTable.Cols.Solved + ", " +
-                CrimeTable.Cols.Suspect +
+                CrimeTable.Cols.SuspectName + ", " +
+                CrimeTable.Cols.SuspectNumber +
                 ")");
         }
 

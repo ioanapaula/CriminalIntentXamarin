@@ -23,6 +23,8 @@ namespace CriminalIntentXamarin.Droid.Data
 
         public bool Solved { get; set; }
 
-        public string Suspect { get; set; }
+        public string SuspectName { get; set; }
+
+        public string SuspectNumber { get; set; }
     }
 }

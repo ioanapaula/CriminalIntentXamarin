@@ -61,7 +61,8 @@ namespace CriminalIntentXamarin.Droid.Data
             values.Put(CrimeTable.Cols.Title, crime.Title);
             values.Put(CrimeTable.Cols.Date, crime.Date.Time);
             values.Put(CrimeTable.Cols.Solved, crime.Solved ? 1 : 0);
-            values.Put(CrimeTable.Cols.Suspect, crime.Suspect);
+            values.Put(CrimeTable.Cols.SuspectName, crime.SuspectName);
+            values.Put(CrimeTable.Cols.SuspectNumber, crime.SuspectNumber);
 
             return values;
         }

@@ -10,6 +10,7 @@ using Android.Views;
 using Android.Widget;
 using CriminalIntentXamarin.Droid.Fragments;
 using Java.Util;
+using static Android.Provider.ContactsContract.CommonDataKinds;
 
 namespace CriminalIntentXamarin.Droid.Data
 {
@@ -27,6 +28,7 @@ namespace CriminalIntentXamarin.Droid.Data
         private Button _dateButton;
         private Button _reportButton;
         private Button _suspectButton;
+        private Button _callButton;
         private CheckBox _solvedCheckBox;
 
         public static CrimeFragment NewInstance(UUID crimeId)
@@ -73,10 +75,21 @@ namespace CriminalIntentXamarin.Droid.Data
 
             _reportButton.Click += ReportButtonClicked;
             _suspectButton.Click += SuspectButtonClicked;
+            _callButton.Click += CallButtonClicked;
 
-            if (_crime.Suspect != null)
+            if (_crime.SuspectName != null)
             {
-                _suspectButton.Text = _crime.Suspect;
+                _suspectButton.Text = _crime.SuspectName;
+            }
+
+            if (_crime.SuspectNumber != null)
+            {
+                _callButton.Text = _crime.SuspectNumber;
+                _callButton.Enabled = true;
+            }
+            else
+            {
+                _callButton.Enabled = false;
             }
 
             var packageManager = Activity.PackageManager;
@@ -99,7 +112,9 @@ namespace CriminalIntentXamarin.Droid.Data
             else if (requestCode == RequestContact && data != null)
             {
                 var contactUri = data.Data;
-                string[] queryFields = new string[] { ContactsContract.Contacts.InterfaceConsts.DisplayName };
+                var phoneContactUri = Phone.ContentUri;
+
+                string[] queryFields = new string[] { ContactsContract.Contacts.InterfaceConsts.DisplayName, ContactsContract.Contacts.InterfaceConsts.Id };
 
                 var cursor = Activity.ContentResolver.Query(contactUri, queryFields, null, null, null);
                 try
@@ -111,8 +126,25 @@ namespace CriminalIntentXamarin.Droid.Data
 
                     cursor.MoveToFirst();
                     var suspect = cursor.GetString(0);
-                    _crime.Suspect = suspect;
+                    _crime.SuspectName = suspect;
                     _suspectButton.Text = suspect;
+
+                    var id = cursor.GetString(1);
+                    string[] phoneQueryFields = { Phone.Number };
+                    var phoneCursor = Activity.ContentResolver.Query(phoneContactUri, phoneQueryFields,  Phone.InterfaceConsts.ContactId + " = ?", new string[] { id }, null);
+
+                    if (phoneCursor.Count == 0)
+                    {
+                        Toast.MakeText(Activity, Resource.String.no_phone_number, ToastLength.Short).Show();
+                    }
+                    else
+                    {
+                        phoneCursor.MoveToFirst();
+                        var phoneNumber = phoneCursor.GetString(0);
+                        _crime.SuspectNumber = phoneNumber;
+                        _callButton.Text = phoneNumber;
+                        _callButton.Enabled = true;
+                    }
                 }
                 finally
                 {
@@ -131,17 +163,25 @@ namespace CriminalIntentXamarin.Droid.Data
 
         private void ReportButtonClicked(object sender, EventArgs e)
         {
-            var intent = new Intent(Intent.ActionSend);
-            intent.SetType("text/plain");
-            intent.PutExtra(Intent.ExtraText, GetCrimeReport());
-            intent.PutExtra(Intent.ExtraSubject, GetString(Resource.String.crime_report_subject));
-            intent = Intent.CreateChooser(intent, GetString(Resource.String.send_report));
+            var intent = ShareCompat.IntentBuilder.From(Activity)
+                                .SetType("text/plain")
+                                .SetText(GetCrimeReport())
+                                .SetSubject(GetString(Resource.String.crime_report_subject))
+                                .SetChooserTitle(Resource.String.send_report)
+                                .CreateChooserIntent();
             StartActivity(intent);
         }
 
         private void SuspectButtonClicked(object sender, EventArgs e)
         {
             StartActivityForResult(_pickContactIntent, RequestContact);
+        }
+
+        private void CallButtonClicked(object sender, EventArgs e)
+        {
+            var intent = new Intent(Intent.ActionDial);
+            intent.SetData(Android.Net.Uri.Parse("tel:" + _crime.SuspectNumber));
+            StartActivity(intent);
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
@@ -170,7 +210,7 @@ namespace CriminalIntentXamarin.Droid.Data
             var dateFormat = new SimpleDateFormat("EEE, MMM dd");
             var dateString = dateFormat.Format(_crime.Date);
 
-            var suspect = _crime.Suspect;
+            var suspect = _crime.SuspectName;
 
             if (suspect == null)
             {
@@ -193,6 +233,7 @@ namespace CriminalIntentXamarin.Droid.Data
             _solvedCheckBox = view.FindViewById<CheckBox>(Resource.Id.crime_solved);
             _reportButton = view.FindViewById<Button>(Resource.Id.crime_report);
             _suspectButton = view.FindViewById<Button>(Resource.Id.crime_suspect);
+            _callButton = view.FindViewById<Button>(Resource.Id.crime_suspect_number);
             _pickContactIntent = new Intent(Intent.ActionPick, ContactsContract.Contacts.ContentUri);
         }
     }
