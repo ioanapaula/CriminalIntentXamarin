@@ -19,10 +19,15 @@ namespace CriminalIntentXamarin.Droid.Data
 
         public string Title { get; set; }
 
-        public Date Date { get; set; } 
+        public Date Date { get; set; }
 
         public bool Solved { get; set; }
 
         public string Suspect { get; set; }
+
+        public string GetPhotoFileName()
+        {
+            return "IMG_" + Id.ToString() + ".jpg";
+        }
     }
 }

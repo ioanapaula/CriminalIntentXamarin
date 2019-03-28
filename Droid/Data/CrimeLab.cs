@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.Database.Sqlite;
 using CriminalIntentXamarin.Droid.DataBase;
+using Java.IO;
 using Java.Util;
 using static CriminalIntentXamarin.Droid.DataBase.CrimeDbSchema;
 
@@ -97,6 +98,13 @@ namespace CriminalIntentXamarin.Droid.Data
             var contentValues = GetContentValues(crime);
 
             _database.Update(CrimeTable.Name, contentValues, CrimeTable.Cols.Uuid + " = ?", new string[] { uuidString });
+        }
+
+        public File GetPhotoFile(Crime crime)
+        {
+            var filesDir = _context.FilesDir;
+
+            return new File(filesDir, crime.GetPhotoFileName());
         }
 
         private CrimeCursorWrapper QueryCrimes(string whereClause, string[] whereArgs)

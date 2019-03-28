@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.Content;
 using Android.Content.PM;
 using Android.Icu.Text;
 using Android.OS;
 using Android.Provider;
 using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
 using CriminalIntentXamarin.Droid.Fragments;
+using Java.IO;
 using Java.Util;
 
 namespace CriminalIntentXamarin.Droid.Data
@@ -19,14 +22,19 @@ namespace CriminalIntentXamarin.Droid.Data
         private const string DialogDate = "date_picker";
         private const int RequestDate = 0;
         private const int RequestContact = 1;
+        private const int RequestPhoto = 2;
 
         private Intent _pickContactIntent;
+        private Intent _openCameraIntent;
         private Crime _crime;
         private CrimeLab _crimeLab;
         private EditText _titleField;
         private Button _dateButton;
         private Button _reportButton;
         private Button _suspectButton;
+        private ImageButton _photoButton;
+        private ImageView _photoImageView;
+        private File _photoFile;
         private CheckBox _solvedCheckBox;
 
         public static CrimeFragment NewInstance(UUID crimeId)
@@ -48,6 +56,7 @@ namespace CriminalIntentXamarin.Droid.Data
             var crimeId = (UUID)Arguments.GetSerializable(ArgCrimeId);
             _crimeLab = CrimeLab.Get(Activity);
             _crime = _crimeLab.GetCrime(crimeId);
+            _photoFile = _crimeLab.GetPhotoFile(_crime);
         }
 
         public override void OnPause()
@@ -73,6 +82,8 @@ namespace CriminalIntentXamarin.Droid.Data
 
             _reportButton.Click += ReportButtonClicked;
             _suspectButton.Click += SuspectButtonClicked;
+            _photoButton.Click += PhotoButtonClicked;
+            UpdatePhotoView();
 
             if (_crime.Suspect != null)
             {
@@ -85,6 +96,9 @@ namespace CriminalIntentXamarin.Droid.Data
                 _suspectButton.Enabled = false;
             }
 
+            var canTakePhoto = _photoFile != null && _openCameraIntent.ResolveActivity(packageManager) != null;
+            _photoButton.Enabled = canTakePhoto;
+
             return view;
         }
 
@@ -94,6 +108,7 @@ namespace CriminalIntentXamarin.Droid.Data
             {
                 var date = (Date)data.GetSerializableExtra(DatePickerFragment.ExtraDate);
                 _crime.Date = date;
+
                 _dateButton.Text = _crime.Date.ToString();
             }
             else if (requestCode == RequestContact && data != null)
@@ -119,6 +134,12 @@ namespace CriminalIntentXamarin.Droid.Data
                     cursor.Close();
                 }
             }
+            else if (requestCode == RequestPhoto) 
+            {
+                var uri = FileProvider.GetUriForFile(Activity, "com.bignerdranch.android.criminalintent.fileprovider", _photoFile);
+                Activity.RevokeUriPermission(uri, ActivityFlags.GrantWriteUriPermission);
+                UpdatePhotoView();
+            }
         }
 
         private void DateButtonClicked(object sender, EventArgs e)
@@ -137,6 +158,19 @@ namespace CriminalIntentXamarin.Droid.Data
             intent.PutExtra(Intent.ExtraSubject, GetString(Resource.String.crime_report_subject));
             intent = Intent.CreateChooser(intent, GetString(Resource.String.send_report));
             StartActivity(intent);
+        }
+
+        private void PhotoButtonClicked(object sender, EventArgs e)
+        {
+            var uri = FileProvider.GetUriForFile(Activity, "com.bignerdranch.android.criminalintent.fileprovider", _photoFile);
+            _openCameraIntent.PutExtra(MediaStore.ExtraOutput, uri);
+            IList<ResolveInfo> cameraActivities = Activity.PackageManager.QueryIntentActivities(_openCameraIntent, PackageInfoFlags.MatchDefaultOnly);
+            foreach (ResolveInfo activity in cameraActivities)
+            {
+                Activity.GrantUriPermission(activity.ActivityInfo.PackageName, uri, ActivityFlags.GrantWriteUriPermission);
+            }
+
+            StartActivityForResult(_openCameraIntent, RequestPhoto);
         }
 
         private void SuspectButtonClicked(object sender, EventArgs e)
@@ -186,6 +220,19 @@ namespace CriminalIntentXamarin.Droid.Data
             return report;
         }
 
+        private void UpdatePhotoView()
+        {
+            if (_photoImageView == null || !_photoFile.Exists())
+            {
+                _photoImageView.SetImageDrawable(null);
+            }
+            else
+            {
+                var bitmap = PictureUtils.GetScaledBitmap(_photoFile.Path, Activity);
+                _photoImageView.SetImageBitmap(bitmap);
+            }
+        }
+
         private void InitFields(View view)
         {
             _titleField = view.FindViewById<EditText>(Resource.Id.crime_title);
@@ -193,7 +240,10 @@ namespace CriminalIntentXamarin.Droid.Data
             _solvedCheckBox = view.FindViewById<CheckBox>(Resource.Id.crime_solved);
             _reportButton = view.FindViewById<Button>(Resource.Id.crime_report);
             _suspectButton = view.FindViewById<Button>(Resource.Id.crime_suspect);
+            _photoButton = view.FindViewById<ImageButton>(Resource.Id.crime_camera);
+            _photoImageView = view.FindViewById<ImageView>(Resource.Id.crime_photo);
             _pickContactIntent = new Intent(Intent.ActionPick, ContactsContract.Contacts.ContentUri);
+            _openCameraIntent = new Intent(MediaStore.ActionImageCapture);
         }
     }
 }
