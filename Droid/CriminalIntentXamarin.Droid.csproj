@@ -160,6 +160,7 @@
     <Compile Include="DataBase\CrimeCursorWrapper.cs" />
     <Compile Include="CriminalIntentApplication.cs" />
     <Compile Include="PictureUtils.cs" />
+    <Compile Include="Fragments\ZoomedPictureFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -192,6 +193,7 @@
     <AndroidResource Include="Resources\layout\dialog_date.axml" />
     <AndroidResource Include="Resources\menu\fragment_crime_list.xml" />
     <AndroidResource Include="Resources\xml\files.xml" />
+    <AndroidResource Include="Resources\layout\dialog_picture.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />

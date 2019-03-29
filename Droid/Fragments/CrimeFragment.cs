@@ -20,6 +20,7 @@ namespace CriminalIntentXamarin.Droid.Data
     {
         private const string ArgCrimeId = "crime_id";
         private const string DialogDate = "date_picker";
+        private const string DialogPicture = "zoomed_picture";
         private const int RequestDate = 0;
         private const int RequestContact = 1;
         private const int RequestPhoto = 2;
@@ -83,6 +84,7 @@ namespace CriminalIntentXamarin.Droid.Data
             _reportButton.Click += ReportButtonClicked;
             _suspectButton.Click += SuspectButtonClicked;
             _photoButton.Click += PhotoButtonClicked;
+            _photoImageView.Click += ImageViewClicked;
             UpdatePhotoView();
 
             if (_crime.Suspect != null)
@@ -134,7 +136,7 @@ namespace CriminalIntentXamarin.Droid.Data
                     cursor.Close();
                 }
             }
-            else if (requestCode == RequestPhoto) 
+            else if (requestCode == RequestPhoto)
             {
                 var uri = FileProvider.GetUriForFile(Activity, "com.bignerdranch.android.criminalintent.fileprovider", _photoFile);
                 Activity.RevokeUriPermission(uri, ActivityFlags.GrantWriteUriPermission);
@@ -171,6 +173,21 @@ namespace CriminalIntentXamarin.Droid.Data
             }
 
             StartActivityForResult(_openCameraIntent, RequestPhoto);
+        }
+
+        private void ImageViewClicked(object sender, EventArgs e)
+        {
+            if (_photoImageView.Drawable == null)
+            {
+                Toast.MakeText(Activity, "No picture found!", ToastLength.Short).Show();
+
+                return;
+            }
+
+            var uri = FileProvider.GetUriForFile(Activity, "com.bignerdranch.android.criminalintent.fileprovider", _photoFile);
+            var fm = Activity.SupportFragmentManager;
+            var dialog = ZoomedPictureFragment.NewInstance(uri.ToString());
+            dialog.Show(fm, DialogPicture);
         }
 
         private void SuspectButtonClicked(object sender, EventArgs e)
