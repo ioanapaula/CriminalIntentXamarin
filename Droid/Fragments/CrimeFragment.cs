@@ -10,6 +10,7 @@ using Android.Support.V4.Content;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
+using CriminalIntentXamarin.Droid.Extensions;
 using CriminalIntentXamarin.Droid.Fragments;
 using Java.IO;
 using Java.Util;
@@ -20,6 +21,7 @@ namespace CriminalIntentXamarin.Droid.Data
     {
         private const string ArgCrimeId = "crime_id";
         private const string DialogDate = "date_picker";
+        private const string DialogPicture = "zoomed_picture";
         private const int RequestDate = 0;
         private const int RequestContact = 1;
         private const int RequestPhoto = 2;
@@ -83,7 +85,9 @@ namespace CriminalIntentXamarin.Droid.Data
             _reportButton.Click += ReportButtonClicked;
             _suspectButton.Click += SuspectButtonClicked;
             _photoButton.Click += PhotoButtonClicked;
-            UpdatePhotoView();
+            _photoImageView.Click += ImageViewClicked;
+
+            _photoImageView.AddGlobalLayoutListener(GlobalLayout);
 
             if (_crime.Suspect != null)
             {
@@ -91,6 +95,7 @@ namespace CriminalIntentXamarin.Droid.Data
             }
 
             var packageManager = Activity.PackageManager;
+
             if (packageManager.ResolveActivity(_pickContactIntent, PackageInfoFlags.MatchDefaultOnly) == null)
             {
                 _suspectButton.Enabled = false;
@@ -134,12 +139,17 @@ namespace CriminalIntentXamarin.Droid.Data
                     cursor.Close();
                 }
             }
-            else if (requestCode == RequestPhoto) 
+            else if (requestCode == RequestPhoto)
             {
                 var uri = FileProvider.GetUriForFile(Activity, "com.bignerdranch.android.criminalintent.fileprovider", _photoFile);
                 Activity.RevokeUriPermission(uri, ActivityFlags.GrantWriteUriPermission);
                 UpdatePhotoView();
             }
+        }
+
+        private void GlobalLayout()
+        {
+            UpdatePhotoView();
         }
 
         private void DateButtonClicked(object sender, EventArgs e)
@@ -171,6 +181,21 @@ namespace CriminalIntentXamarin.Droid.Data
             }
 
             StartActivityForResult(_openCameraIntent, RequestPhoto);
+        }
+
+        private void ImageViewClicked(object sender, EventArgs e)
+        {
+            if (_photoImageView.Drawable == null)
+            {
+                Toast.MakeText(Activity, "No picture found!", ToastLength.Short).Show();
+
+                return;
+            }
+
+            var uri = FileProvider.GetUriForFile(Activity, "com.bignerdranch.android.criminalintent.fileprovider", _photoFile);
+            var fm = Activity.SupportFragmentManager;
+            var dialog = ZoomedPictureFragment.NewInstance(uri.ToString());
+            dialog.Show(fm, DialogPicture);
         }
 
         private void SuspectButtonClicked(object sender, EventArgs e)
@@ -228,7 +253,7 @@ namespace CriminalIntentXamarin.Droid.Data
             }
             else
             {
-                var bitmap = PictureUtils.GetScaledBitmap(_photoFile.Path, Activity);
+                var bitmap = PictureUtils.GetScaledBitmap(_photoFile.Path, _photoImageView.Width, _photoImageView.Height);
                 _photoImageView.SetImageBitmap(bitmap);
             }
         }
