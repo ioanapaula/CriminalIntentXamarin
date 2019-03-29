@@ -10,6 +10,7 @@ using Android.Support.V4.Content;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
+using CriminalIntentXamarin.Droid.Extensions;
 using CriminalIntentXamarin.Droid.Fragments;
 using Java.IO;
 using Java.Util;
@@ -85,7 +86,8 @@ namespace CriminalIntentXamarin.Droid.Data
             _suspectButton.Click += SuspectButtonClicked;
             _photoButton.Click += PhotoButtonClicked;
             _photoImageView.Click += ImageViewClicked;
-            UpdatePhotoView();
+
+            _photoImageView.AddGlobalLayoutListener(GlobalLayout);
 
             if (_crime.Suspect != null)
             {
@@ -93,6 +95,7 @@ namespace CriminalIntentXamarin.Droid.Data
             }
 
             var packageManager = Activity.PackageManager;
+
             if (packageManager.ResolveActivity(_pickContactIntent, PackageInfoFlags.MatchDefaultOnly) == null)
             {
                 _suspectButton.Enabled = false;
@@ -142,6 +145,11 @@ namespace CriminalIntentXamarin.Droid.Data
                 Activity.RevokeUriPermission(uri, ActivityFlags.GrantWriteUriPermission);
                 UpdatePhotoView();
             }
+        }
+
+        private void GlobalLayout()
+        {
+            UpdatePhotoView();
         }
 
         private void DateButtonClicked(object sender, EventArgs e)
@@ -245,7 +253,7 @@ namespace CriminalIntentXamarin.Droid.Data
             }
             else
             {
-                var bitmap = PictureUtils.GetScaledBitmap(_photoFile.Path, Activity);
+                var bitmap = PictureUtils.GetScaledBitmap(_photoFile.Path, _photoImageView.Width, _photoImageView.Height);
                 _photoImageView.SetImageBitmap(bitmap);
             }
         }
