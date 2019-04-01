@@ -192,6 +192,9 @@
     <AndroidResource Include="Resources\layout\dialog_date.axml" />
     <AndroidResource Include="Resources\menu\fragment_crime_list.xml" />
     <AndroidResource Include="Resources\xml\files.xml" />
+    <AndroidResource Include="Resources\layout\activity_two_pane.axml" />
+    <AndroidResource Include="Resources\values\refs.xml" />
+    <AndroidResource Include="Resources\values-sw600dp\refs.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />
@@ -200,6 +203,7 @@
     <Folder Include="Resources\menu\" />
     <Folder Include="DataBase\" />
     <Folder Include="Resources\xml\" />
+    <Folder Include="Resources\values-sw600dp\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\StyleCop.MSBuild.6.0.0\build\StyleCop.MSBuild.targets" Condition="Exists('..\packages\StyleCop.MSBuild.6.0.0\build\StyleCop.MSBuild.targets')" />

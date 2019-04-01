@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.App;
+using Android.Content;
 using Android.Icu.Text;
 using Android.OS;
 using Android.Support.V7.App;
@@ -20,6 +21,19 @@ namespace CriminalIntentXamarin.Droid.Data
         private RecyclerView _crimeRecyclerView;
         private CrimeAdapter _adapter;
         private bool _subtitleVisible;
+        private ICallbacks _callbacks;
+
+        public interface ICallbacks
+        {
+            void OnCrimeSelected(Crime crime);
+        }
+
+        public override void OnAttach(Context context)
+        {
+            base.OnAttach(context);
+
+            _callbacks = (ICallbacks)context;
+        }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -50,6 +64,20 @@ namespace CriminalIntentXamarin.Droid.Data
             outState.PutBoolean(SavedSubtitleVisible, _subtitleVisible);
         }
 
+        public override void OnDetach()
+        {
+            base.OnDetach();
+
+            _callbacks = null;
+        }
+
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            UpdateUI();
+        }
+
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
             base.OnCreateOptionsMenu(menu, inflater);
@@ -74,8 +102,8 @@ namespace CriminalIntentXamarin.Droid.Data
                 case Resource.Id.new_crime:
                     var crime = new Crime();
                     CrimeLab.Get(Activity).AddCrime(crime);
-                    var intent = CrimePagerActivity.NewIntent(Activity, crime.Id);
-                    StartActivity(intent);
+                    UpdateUI();
+                    _callbacks.OnCrimeSelected(crime);
 
                     return true;
 
@@ -91,21 +119,14 @@ namespace CriminalIntentXamarin.Droid.Data
             }
         }
 
-        public override void OnResume()
-        {
-            base.OnResume();
-
-            UpdateUI();
-        }
-
-        private void UpdateUI()
+        public void UpdateUI()
         {
             CrimeLab crimeLab = CrimeLab.Get(Activity);
             List<Crime> crimes = crimeLab.Crimes;
 
             if (_adapter == null)
             {
-                _adapter = new CrimeAdapter(crimes);
+                _adapter = new CrimeAdapter(crimes, _callbacks);
                 _crimeRecyclerView.SetAdapter(_adapter);
             }
             else
@@ -135,10 +156,12 @@ namespace CriminalIntentXamarin.Droid.Data
         private class CrimeAdapter : RecyclerView.Adapter
         {
             private List<Crime> _crimes;
+            private ICallbacks _callbacks;
 
-            public CrimeAdapter(List<Crime> crimes)
+            public CrimeAdapter(List<Crime> crimes, ICallbacks callbacks)
             {
                 _crimes = crimes;
+                _callbacks = callbacks;
             }
 
             public override int ItemCount => _crimes.Count;
@@ -152,7 +175,7 @@ namespace CriminalIntentXamarin.Droid.Data
             {
                 LayoutInflater layoutInflater = LayoutInflater.From(parent.Context);
 
-                return new CrimeHolder(layoutInflater, parent);
+                return new CrimeHolder(layoutInflater, parent, _callbacks);
             }
 
             public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -169,12 +192,14 @@ namespace CriminalIntentXamarin.Droid.Data
             private TextView _dateTextView;
             private ImageView _solvedImageView;
             private Crime _crime;
+            private ICallbacks _callbacks;
 
-            public CrimeHolder(LayoutInflater inflater, ViewGroup parent) : base(inflater.Inflate(Resource.Layout.list_item_crime, parent, false))
+            public CrimeHolder(LayoutInflater inflater, ViewGroup parent, ICallbacks callbacks) : base(inflater.Inflate(Resource.Layout.list_item_crime, parent, false))
             {
                 _titleTextView = ItemView.FindViewById<TextView>(Resource.Id.crime_title);
                 _dateTextView = ItemView.FindViewById<TextView>(Resource.Id.crime_date);
                 _solvedImageView = ItemView.FindViewById<ImageView>(Resource.Id.imageView);
+                _callbacks = callbacks;
                 ItemView.Click += ItemViewClicked;
             }
 
@@ -189,8 +214,7 @@ namespace CriminalIntentXamarin.Droid.Data
 
             private void ItemViewClicked(object sender, EventArgs e)
             {
-                var intent = CrimePagerActivity.NewIntent(ItemView.Context, _crime.Id);
-                ItemView.Context.StartActivity(intent);
+                _callbacks.OnCrimeSelected(_crime);
             }
         }
     }
