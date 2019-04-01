@@ -8,11 +8,16 @@ namespace CriminalIntentXamarin.Droid
     {
         protected abstract Fragment CreateFragment();
 
+        protected virtual int GetLayoutResId()
+        {
+            return Resource.Layout.activity_fragment;
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.activity_fragment);
+            SetContentView(GetLayoutResId());
 
             var fm = SupportFragmentManager;
             var fragment = fm.FindFragmentById(Resource.Id.fragment_container);

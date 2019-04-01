@@ -12,7 +12,7 @@ using Java.Util;
 namespace CriminalIntentXamarin.Droid.Activities
 {
     [Activity(Label = "CriminalIntentXamarin", Theme = "@style/AppTheme", ParentActivity = typeof(CrimeListActivity))]
-    public class CrimePagerActivity : AppCompatActivity
+    public class CrimePagerActivity : AppCompatActivity, CrimeFragment.ICallbacks
     {
         private const string ExtraCrimeId = "com.companyname.criminalintentxamarin.crime_id";
 
@@ -25,6 +25,10 @@ namespace CriminalIntentXamarin.Droid.Activities
             intent.PutExtra(ExtraCrimeId, crimeId);
 
             return intent;
+        }
+
+        public void OnCrimeUpdated(Crime crime)
+        {
         }
 
         protected override void OnCreate(Bundle savedInstanceState)

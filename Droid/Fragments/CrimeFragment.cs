@@ -36,6 +36,12 @@ namespace CriminalIntentXamarin.Droid.Data
         private ImageView _photoImageView;
         private File _photoFile;
         private CheckBox _solvedCheckBox;
+        private ICallbacks _callbacks;
+
+        public interface ICallbacks
+        {
+            void OnCrimeUpdated(Crime crime);
+        }
 
         public static CrimeFragment NewInstance(UUID crimeId)
         {
@@ -47,6 +53,13 @@ namespace CriminalIntentXamarin.Droid.Data
             };
 
             return fragment;
+        }
+
+        public override void OnAttach(Context context)
+        {
+            base.OnAttach(context);
+
+            _callbacks = (ICallbacks)context;
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -64,6 +77,13 @@ namespace CriminalIntentXamarin.Droid.Data
             base.OnPause();
 
             CrimeLab.Get(Activity).UpdateCrime(_crime);
+        }
+
+        public override void OnDetach()
+        {
+            base.OnDetach();
+
+            _callbacks = null;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -109,6 +129,7 @@ namespace CriminalIntentXamarin.Droid.Data
                 var date = (Date)data.GetSerializableExtra(DatePickerFragment.ExtraDate);
                 _crime.Date = date;
 
+                UpdateCrime();
                 _dateButton.Text = _crime.Date.ToString();
             }
             else if (requestCode == RequestContact && data != null)
@@ -127,6 +148,7 @@ namespace CriminalIntentXamarin.Droid.Data
                     cursor.MoveToFirst();
                     var suspect = cursor.GetString(0);
                     _crime.Suspect = suspect;
+                    UpdateCrime();
                     _suspectButton.Text = suspect;
                 }
                 finally
@@ -140,6 +162,12 @@ namespace CriminalIntentXamarin.Droid.Data
                 Activity.RevokeUriPermission(uri, ActivityFlags.GrantWriteUriPermission);
                 UpdatePhotoView();
             }
+        }
+
+        public void UpdateCrime()
+        {
+            CrimeLab.Get(Activity).UpdateCrime(_crime);
+            _callbacks.OnCrimeUpdated(_crime);
         }
 
         private void DateButtonClicked(object sender, EventArgs e)
@@ -181,11 +209,13 @@ namespace CriminalIntentXamarin.Droid.Data
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
             _crime.Title = e.Text.ToString();
+            UpdateCrime();
         }
 
         private void CheckBoxChecked(object sender, CompoundButton.CheckedChangeEventArgs e)
         {
             _crime.Solved = e.IsChecked;
+            UpdateCrime();
         }
 
         private string GetCrimeReport()
