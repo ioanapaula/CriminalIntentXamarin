@@ -6,6 +6,7 @@ using Android.Icu.Text;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
+using Android.Support.V7.Widget.Helper;
 using Android.Views;
 using Android.Widget;
 using CriminalIntentXamarin.Droid.Activities;
@@ -128,6 +129,9 @@ namespace CriminalIntentXamarin.Droid.Data
             {
                 _adapter = new CrimeAdapter(crimes, _callbacks);
                 _crimeRecyclerView.SetAdapter(_adapter);
+                var touchHelperCallback = new CrimeItemtouchHelper(_adapter);
+                var itemTouchHelper = new ItemTouchHelper(touchHelperCallback);
+                itemTouchHelper.AttachToRecyclerView(_crimeRecyclerView);
             }
             else
             {
@@ -171,14 +175,14 @@ namespace CriminalIntentXamarin.Droid.Data
                 _crimes = crimes;
             }
 
-            public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+            public override ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
             {
                 LayoutInflater layoutInflater = LayoutInflater.From(parent.Context);
 
                 return new CrimeHolder(layoutInflater, parent, _callbacks);
             }
 
-            public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+            public override void OnBindViewHolder(ViewHolder holder, int position)
             {
                 var crimeHolder = holder as CrimeHolder;
                 var crime = _crimes[position];
@@ -215,6 +219,35 @@ namespace CriminalIntentXamarin.Droid.Data
             private void ItemViewClicked(object sender, EventArgs e)
             {
                 _callbacks.OnCrimeSelected(_crime);
+            }
+        }
+
+        private class CrimeItemtouchHelper : ItemTouchHelper.Callback
+        {
+            private CrimeAdapter _adapter;
+
+            public CrimeItemtouchHelper(CrimeAdapter adapter)
+            {
+                _adapter = adapter;
+            }
+
+            public override int GetMovementFlags(RecyclerView p0, ViewHolder p1)
+            {
+                return MakeMovementFlags(0, ItemTouchHelper.Right);
+            }
+
+            public override bool OnMove(RecyclerView recyclerView, ViewHolder viewHolder, ViewHolder target)
+            {
+                return false;
+            }
+
+            public override void OnSwiped(ViewHolder viewHolder, int direction)
+            {
+                var crimeLab = CrimeLab.Get(Application.Context);
+                int position = viewHolder.AdapterPosition;
+                var crime = crimeLab.Crimes[position];
+                crimeLab.DeleteCrime(crime);
+                _adapter.NotifyDataSetChanged();
             }
         }
     }

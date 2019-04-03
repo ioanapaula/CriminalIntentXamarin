@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Android.Content;
 using Android.Database.Sqlite;
 using CriminalIntentXamarin.Droid.DataBase;
@@ -19,32 +20,12 @@ namespace CriminalIntentXamarin.Droid.Data
         {
             _context = context.ApplicationContext;
             _database = new CrimeBaseHelper(_context).WritableDatabase;
+
+            UpdateCrimes();
         }
 
-        public List<Crime> Crimes
-        {
-            get
-            {
-                var crimes = new List<Crime>();
-                var cursor = QueryCrimes(null, null);
-                try
-                {
-                    cursor.MoveToFirst();
-                    while (!cursor.IsAfterLast)
-                    {
-                        crimes.Add(cursor.GetCrime());
-                        cursor.MoveToNext();
-                    }
-                }
-                finally
-                {
-                    cursor.Close();
-                }
-
-                return crimes;
-            }
-        } 
-
+        public List<Crime> Crimes { get; } = new List<Crime>();
+        
         public static CrimeLab Get(Context context)
         {
             if (crimeLab == null)
@@ -90,6 +71,8 @@ namespace CriminalIntentXamarin.Droid.Data
         {
             var values = GetContentValues(crime);
             _database.Insert(CrimeTable.Name, null, values);
+
+            UpdateCrimes();
         }
 
         public void UpdateCrime(Crime crime)
@@ -98,6 +81,16 @@ namespace CriminalIntentXamarin.Droid.Data
             var contentValues = GetContentValues(crime);
 
             _database.Update(CrimeTable.Name, contentValues, CrimeTable.Cols.Uuid + " = ?", new string[] { uuidString });
+
+            UpdateCrimes();
+        }
+
+        public void DeleteCrime(Crime crime)
+        {
+            var uuidString = crime.Id.ToString();
+            _database.Delete(CrimeTable.Name, CrimeTable.Cols.Uuid + " = ?", new string[] { uuidString });
+
+            UpdateCrimes();
         }
 
         public File GetPhotoFile(Crime crime)
@@ -119,6 +112,29 @@ namespace CriminalIntentXamarin.Droid.Data
                 null);
 
             return new CrimeCursorWrapper(cursor);
+        }
+
+        private void UpdateCrimes()
+        {
+            var crimes = new List<Crime>();
+
+            var cursor = QueryCrimes(null, null);
+            try
+            {
+                cursor.MoveToFirst();
+                while (!cursor.IsAfterLast)
+                {
+                    crimes.Add(cursor.GetCrime());
+                    cursor.MoveToNext();
+                }
+            }
+            finally
+            {
+                cursor.Close();
+            }
+
+            Crimes.Clear();
+            crimes.ForEach(crime => Crimes.Add(crime));
         }
     }
 }
